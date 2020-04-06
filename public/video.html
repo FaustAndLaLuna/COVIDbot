@@ -53,8 +53,8 @@
         $(document).ready(() => {
             if(navigator.geolocation){
                 navigator.geolocation.getCurrentPosition((position) => {
-                    console.log(position);
-                    $("#coords").attr("value", JSON.stringify(position));
+                    console.log(JSON.stringify(position.coords));
+                    $("#coords").attr("value", JSON.stringify(position.coords));
                 });
             }
         });
