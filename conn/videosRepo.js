@@ -4,28 +4,18 @@ var POOL = require('./pool').POOL;
 class videosRepo{
 	constructor(){
 		const sql = `CREATE TABLE IF NOT EXISTS videos(
-			videoID int PRIMARY KEY  AUTO_INCREMENT,
-			userID int DEFAULT -1,
-			description text,
-			title text,
-			tags text,
+			videoID int PRIMARY KEY AUTO_INCREMENT,
+			user text,
+			email text,
 			transcription text,
 			isTranscripted boolean DEFAULT false,
-			objectID int DEFAULT -1,
-			isEncoded boolean DEFAULT FALSE,
+			isEncoded boolean DEFAULT false,
 			videoURL varchar(100) DEFAULT NULL,
 			timePublished datetime,
 			tempURL varchar(100) DEFAULT NULL,
-			CONSTRAINT fk_userVideos
-			FOREIGN KEY (userID)
-			REFERENCES users(id)
-				ON UPDATE CASCADE
-				ON DELETE CASCADE,
-			CONSTRAINT fk_objectsVideos
-			FOREIGN KEY (objectID)
-			REFERENCES objects(objectID)
-				ON UPDATE CASCADE
-				ON DELETE CASCADE);`
+			questionario text,
+			coords text`
+
 		POOL.getConnection(function (error, conn){
 			conn.query(sql, function(err, result){
 				if(err)	console.log(err);
@@ -86,11 +76,10 @@ class videosRepo{
 		});
 	}
 	
-	createAssociated(videoURL, tempURL, userID, objectID, description, title, tags){
-		let q = 'INSERT INTO videos (videoURL, timePublished, tempURL, userID, objectID, description, title, tags) VALUES ' +
-				"(?, NOW(), ?, ?, ?, ?, ?, ?)"
+	createAssociated(videoURL, tempURL, user, email, coords){
+		let q = 'INSERT INTO videos (videoURL, timePublished, tempURL, user, email, coords) VALUES (?, NOW(), ?, ?, ?, ?)'
 		POOL.getConnection(function (err, conn){
-			conn.query(q, [videoURL, tempURL, userID, objectID, description, title, tags], function(err,result){
+			conn.query(q, [videoURL, tempURL, user, email, coords], function(err,result){
 				if (err)	console.log(err);
 				conn.release();
 				return;

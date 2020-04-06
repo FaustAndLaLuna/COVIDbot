@@ -95,7 +95,7 @@ app.use(function(req, res, next){
 	else res.redirect('/login.html');
 });
  
-require('./routes/routesLogIn.js')(app);
+//require('./routes/routesLogIn.js')(app);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

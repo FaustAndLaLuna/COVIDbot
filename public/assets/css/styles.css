@@ -1,0 +1,176 @@
+.navbar {
+  font-family: Hind, sans-serif;
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: .5rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    font-family: Hind, sans-serif;
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar-light .navbar-brand {
+    display: none;
+    float: right;
+  }
+}
+
+.navbar-nav {
+  display: -ms-flexbox;
+  display: flex;
+  float: right;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+@media (min-width: 768px) {
+  .navbar-nav {
+    display: block;
+    float: right;
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width:768px) {
+  .navbar-expand-md .navbar-collapse {
+    direction: rtl;
+    display: -ms-flexbox!important;
+    display: block;
+    float: right;
+    position: sticky;
+  }
+}
+
+@media (max-width: 767px) {
+  #desktopBrand {
+    display: none;
+  }
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-family: 'Hind';
+}
+
+@media (min-width: 768px) {
+  #rightZIndex {
+    position: absolute;
+    right: 0;
+    z-index: 9;
+    padding: 2rem 6.8rem;
+  }
+}
+
+@media (max-width: 767px) {
+  #rightZIndex {
+    float: right;
+    padding: 1rem 2.6rem;
+    padding-top: 1rem;
+    padding-bottom: 0rem;
+    padding-left: 0rem;
+    padding-right: 2.6rem;
+    z-index: 9;
+  }
+}
+
+footer a {
+  display: block;
+  text-align: center;
+}
+
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+a {
+  color: black;
+  text-decoration: underline;
+  background-color: transparent;
+}
+
+@media (max-width: 767px) {
+  #leftZIndex {
+    padding: 1rem 0.6rem;
+    z-index: 9;
+  }
+}
+
+@media (min-width: 768px) {
+  #leftZIndex {
+    position: absolute;
+    top: 66%;
+    left: 3vw;
+  }
+}
+
+#desktopBrand {
+  font-size: 20px;
+  text-decoration: none;
+}
+
+html {
+  font-family: 'Hind';
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  font-family: 'Hind';
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color: #fff;
+}
+
+#coronavirus {
+  position: relative;
+  padding-top: 7vh;
+  padding-right: 20vw;
+  padding-left: 20vw;
+  font-size: 16px;
+  text-align: center;
+  z-index: 2;
+}
+
+@media (min-width: 768px) {
+  #video {
+    padding: 4rem 8rem;
+  }
+}
+
+@media (max-width: 767px) {
+  #video {
+    padding: 0rem 2rem;
+  }
+}
+
