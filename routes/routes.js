@@ -13,6 +13,8 @@ var biographyRouter = require('./biography.js');
 var uploadRouter 	= require('./uploadAlt.js');
 var adminRecord 	= require("./adminRecord.js");
 var sellAdmin		= require("./sellAdmin.js");
+var uploadRouter 	= require('./upload.js');
+var recordRouter 	= require('./record.js');
 
 module.exports = function(app, passport){
 	
