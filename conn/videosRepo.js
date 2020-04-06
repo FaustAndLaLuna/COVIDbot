@@ -14,7 +14,9 @@ class videosRepo{
 			timePublished datetime,
 			tempURL varchar(100) DEFAULT NULL,
 			questionario text,
-			coords text`
+			coords text);`
+
+
 
 		POOL.getConnection(function (error, conn){
 			conn.query(sql, function(err, result){
