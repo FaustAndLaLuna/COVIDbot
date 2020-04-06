@@ -38,7 +38,7 @@ function sendDataToBackend(b64data){
 	text2 = document.getElementById('description');
 	text3temp = document.getElementById('tags');
 	text3 = JSON.stringify(text3temp.split(" "));
-    const body = JSON.stringify({data:b64data, title:$("#title").val(), description : $("#description").val(), tags:JSON.stringify($("#tags").val().split(",").split(" ")), user:user, obj:obj });
+    const body = JSON.stringify({data:b64data, user:$("#user").val(), email: $("#email").val()});
     fetch('/upload', {
         method: 'POST',
         headers: {
@@ -51,10 +51,9 @@ function sendDataToBackend(b64data){
 }
 
 function upload() {
-	text1 = document.getElementById('title').value;
-	text2 = document.getElementById('description').value;
-	text3 = document.getElementById('tags').value;
-	if(text1.length == 0 || text2.length == 0 || text3.length == 0){
+    text1 = document.getElementById('user').value;
+    text2 = document.getElementById('email').value;
+	if(text1.length == 0 || text2.length == 0){
 		alert("Los datos no están llenos. Llenar los datos y luego volver a presionar el boton subir");
 		return;
 	}
