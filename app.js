@@ -19,7 +19,7 @@ var mysql 				= require('mysql');
 //const job = CronJob('* * * * * *', encodeMod.encodeCron);
 const job = new CronJob('1-59/2 * * * * *', encodeMod.encodeCron);
 job.start();
-const transJob = new CronJob('*/2 * * * * *', transcriptMod.transcriptionCron);
+//const transJob = new CronJob('*/2 * * * * *', transcriptMod.transcriptionCron);
 transJob.start();
 var passport 			= require('passport');
 var flash 				= require('connect-flash');
@@ -88,13 +88,14 @@ app.use(function(req,res,next){
 require('./routes/routes.js')(app, passport);
 //IMPORTANT LINE;
 //IMPORTANT everything under this function will be login dependent.
+/*
 app.use(function(req, res, next){
 	req.responseObj.isLoggedInFlag = true;
 	if(req.responseObj.isLoggedIn)
 		next();
 	else res.redirect('/login.html');
 });
- 
+ */
 //require('./routes/routesLogIn.js')(app);
 
 // catch 404 and forward to error handler

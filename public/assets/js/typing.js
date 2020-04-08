@@ -1,3 +1,4 @@
+var words = ["coronavirus","depresión económica","crisis","recesión","respiradores","salúd","miedo","cuarentena","aburrición","frustración","COVID19","SARS","pandemia","contagio","muertes","inmudidad de rebaño","contingencia","letalidad","respiradores","mascarillas", "aislamiento social"]
 
 function type(id, word){
 	currStr = document.getElementById(id).innerHTML;
@@ -18,20 +19,26 @@ function untype(id, word){
 		setTimeout(untype, 65 + Math.ceil(Math.random() * 23), id, word);
 	}
 	else{
-		setTimeout(type, 50, id, word);
+		setTimeout(type, 50, id, words[Math.floor(Math.random() * words.length)]);
 	}
 }
 
+function changeOffset(element){
+	var offset = {top: 0, left: 0};
+	offset.top = (Math.random() * $(window).height() * 0.5) + 0.2 * $(window).height();
+	offset.left = (Math.random() * $(window).width() * 0.5) + 0.2 * $(window).width();
+	element.css("font-size", +(4.5 + Math.random() * 3 - 1.5 )+"vw");
+	element.offset(offset);
+}
+
+
 $(document).ready(() => {
-	offOriginal = $("#coronavirus").offset();
-	off = offOriginal;
-	off.top += Math.ceil(40 * Math.random()) - 20;
-	$("#pandemia").offset(off);
-	off = offOriginal;
-	off.top += Math.ceil(40 * Math.random()) - 20;
-	$("#depresion").offset(off);
 	setTimeout(type, 50, "coronavirus", "coronavirus");
-	setTimeout(type, 1500, "pandemia", "pandemia");
-	setTimeout(type, 3000, "depresion", "recesion");
-	setTimeout(window.location.redirect, 6000, "explanation.html");
+	for(var i = 1; i <21; i++){
+		el = $("#pandemia"+i);
+		changeOffset(el);
+		setTimeout(type, i * 500 + Math.random() * 1000, "pandemia" + i, words[Math.floor(Math.random() * words.length)]);
+	}
+	$("#spacer").height($(window).height() * 0.8 - $("#spacer").offset().top);
+	// setTimeout(window.location.redirect, 6000, "explanation.html");
 })

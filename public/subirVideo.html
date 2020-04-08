@@ -28,19 +28,16 @@
     </nav>
     <p id="rightZIndex">Vos:</p>
     <p id="leftZIndex">Mundo:</p><div id="video"> <h4 class="card-title">graba tu ventana</h4>
-            <p class="card-text">Para subir recuerdo, dar click en Grabar, luego cuando estés satisfecho, debes dar click a Parar grabación.<br>Si estás satisfecho con tu video, puedes dar click en Subir. Si no lo estás, puedes volver a grabar dando click en Grabar.<br><br></p>
-            <form action="/upload" method='POST' enctype="multipart/form-data" id="form">
-
-            <input class="text" name="user" id="user" value="" style="" placeholder="nombre">
-            <input class="text" name="email" id="email" value="" placeholder="email">
-            <input class="hidden" name="coords" id="coords" value='{"lat":999,"long":999}' style="display:none;">
-    <button class="btn btn-primary" type="button" style="background-color: rgb(0,0,0);" id="btn-start-recording" onclick="startRec()">Grabar</button>
-    <button class="btn btn-primary" type="button" style="background-color: rgb(0,0,0);" id="btn-stop-recording" onclick="stopRec()">Parar Grabación</button>
-    <hr />
-    <button class="btn btn-primary" type="button" style="background-color: rgb(0,0,0);" id="btn-upload" onclick="upload()">Subir</button>
-    <br />
-    <video controls autoplay playsinline></video>
-</div></form></div>
+            <p style="margin-left: 7%;margin-right: 7%;">Seleccionar video para subir, luego llenar la información y presionar "subir."</p>
+    <form style="background-color: rgb(228,228,228);" action="/upload" method="POST" enctype="multipart/form-data">
+        <p>&nbsp;&nbsp;</p>
+        <input class="text" name="user" id="user" value="" style="" placeholder="nombre">
+        <input class="text" name="email" id="email" value="" placeholder="email">
+        <input class="hidden" name="coords" id="coords" value='{"lat":999,"long":999}' style="display:none;">
+        <div class="form-group"><input type="file" style="margin-left: 5%;" name="video"></div>
+        <div class="form-group"><button class="btn btn-primary" type="submit" style="background-color: rgb(0,0,0);margin-left: 5%;">Subir</button></div>
+        <p>&nbsp;&nbsp;</p>
+    </form>
     <p class="footer-basic"></p>
     <hr>
     <div class="footer-basic">
