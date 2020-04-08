@@ -13,9 +13,9 @@ router.get('/', function(req, res, next) {
 			req.responseObj.obj = obj[0];
 			userAgent = req.get('User-Agent');
 			if(!!userAgent.match("/iPad|iPhone|iPod/")){
-				res.render('recordiOS.ejs', req.responseObj);
+				res.redirect('videoiOS.html');
 			} else {
-				res.render('record.ejs', req.responseObj);
+				res.redirect('video.html');
 			}
 		}
 	);
