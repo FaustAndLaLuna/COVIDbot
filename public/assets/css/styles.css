@@ -151,17 +151,26 @@ body {
   text-align: left;
   background-color: #fff;
 }
-
-#coronavirus {
-  position: relative;
-  padding-top: 7vh;
-  padding-right: 20vw;
-  padding-left: 20vw;
-  font-size: 16px;
-  text-align: center;
-  z-index: 2;
+@media (min-width: 768px){
+  #coronavirus {
+    position: relative;
+    padding-top: 7vh;
+    padding-right: 20vw;
+    padding-left: 20vw;
+    font-size: 16px;
+    text-align: center;
+    z-index: 2;
+  }
 }
-
+@media (max-width: 767px){
+  #coronavirus {
+    position: relative;
+    padding-top: 7vh;
+    font-size: 16px;
+    text-align: center;
+    z-index: 2;
+  }
+}
 @media (min-width: 768px) {
   #video {
     padding: 4rem 8rem;

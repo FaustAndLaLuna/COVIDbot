@@ -1,10 +1,10 @@
-var words = ["coronavirus","depresión económica","crisis","recesión","respiradores","salúd","miedo","cuarentena","aburrición","frustración","COVID19","SARS","pandemia","contagio","muertes","inmudidad de rebaño","contingencia","letalidad","respiradores","mascarillas", "aislamiento social"]
+var words = ["soledad","ansiedad","coronavirus","depresión económica","crisis","recesión","respiradores","salúd","miedo","cuarentena","aburrición","frustración","COVID19","SARS","pandemia","contagio","muertes","inmudidad de rebaño","contingencia","letalidad","respiradores","mascarillas", "aislamiento social"]
 
 function type(id, word){
 	currStr = document.getElementById(id).innerHTML;
 	if(currStr.length < word.length) {
 		document.getElementById(id).innerHTML = word.substring(0, currStr.length + 1);
-		setTimeout(type, 50 + Math.ceil(Math.random() * 11), id, word );
+		setTimeout(type, 50 + Math.ceil(Math.random() * 16) - 8, id, word );
 	}
 	else{
 		if(Math.random() > 0.3)
@@ -12,11 +12,19 @@ function type(id, word){
 	}
 }
 
+function typeCoronavirus(){
+	currStr2 = document.getElementById("coronavirus1").innerHTML;
+	if(currStr2.length < "coronavirus".length){
+		document.getElementById("coronavirus1").innerHTML = "coronavirus".substring(0, currStr2.length + 1);
+		setTimeout(typeCoronavirus, 450);
+	}
+}
+
 function untype(id, word){
 	currStr = document.getElementById(id).innerHTML;
 	if(currStr.length > 1){
 		document.getElementById(id).innerHTML = word.substring(0, currStr.length - 1);
-		setTimeout(untype, 65 + Math.ceil(Math.random() * 23), id, word);
+		setTimeout(untype, 75 + Math.ceil(Math.random() * 24) - 12, id, word);
 	}
 	else{
 		setTimeout(type, 50, id, words[Math.floor(Math.random() * words.length)]);
@@ -26,19 +34,45 @@ function untype(id, word){
 function changeOffset(element){
 	var offset = {top: 0, left: 0};
 	offset.top = (Math.random() * $(window).height() * 0.5) + 0.2 * $(window).height();
-	offset.left = (Math.random() * $(window).width() * 0.5) + 0.2 * $(window).width();
-	element.css("font-size", +(4.5 + Math.random() * 3 - 1.5 )+"vw");
+	offset.left = (Math.random() * $(window).width() * 0.6) + 0.1 * $(window).width();
+	element.css("font-size", +(3.5 + Math.random() * 4 - 1.5 )+"vw");
 	element.offset(offset);
 }
 
 
 $(document).ready(() => {
+	var wait = 0;
+	var maxWords = $(window).width() < 768? 350: 120;
 	setTimeout(type, 50, "coronavirus", "coronavirus");
-	for(var i = 1; i <21; i++){
+	if($(window).width() < 768){
+		$("#coronavirus").offset({top:$(window).height() * .35, left:0});
+	}
+
+	
+	console.log(maxWords);
+
+	setTimeout(() => {
+		if($(window).width() >= 768){
+
+			$("#coronavirus").after('<p id="coronavirus1" style="font-size: 7vw;z-index: 9;text-align: center; position:absolute;width:100%;color:white;text-shadow: 7px 7px 15px black"></p>');
+			$("#coronavirus1").offset({top:$(window).height() * .35, left:0});
+		}
+		else{
+			$("#coronavirus").after('<p id="coronavirus1" style="font-size: 10vw;z-index: 9;text-align: center; position:absolute;width:100%;color:white;text-shadow: 7px 7px 15px black"></p>');
+			$("#coronavirus1").offset({top:$(window).height() * .4175, left: 0});
+		}
+		setTimeout(typeCoronavirus, 150);
+	}, 7500);
+
+	for(var i = 0; i < maxWords; i++){
+		$("#coronavirus").after('<p id="pandemia'+i+'" style="font-size: 5vw;z-index: 3;text-align: center; position:absolute;width = 100%;"></p>');
 		el = $("#pandemia"+i);
 		changeOffset(el);
-		setTimeout(type, i * 500 + Math.random() * 1000, "pandemia" + i, words[Math.floor(Math.random() * words.length)]);
+		wait = wait + 1500 * Math.exp(-0.25 * i) + 80;
+		//setTimeout(type, i * 150 + Math.random() * 1000, "pandemia" + i, words[Math.floor(Math.random() * words.length)]);
+		setTimeout(type, wait, "pandemia" + i, words[Math.floor(Math.random() * words.length)]);
 	}
+
 	$("#spacer").height($(window).height() * 0.8 - $("#spacer").offset().top);
 	// setTimeout(window.location.redirect, 6000, "explanation.html");
 })
