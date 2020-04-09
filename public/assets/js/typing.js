@@ -1,4 +1,4 @@
-var words = ["soledad","ansiedad","coronavirus","depresión económica","crisis","recesión","respiradores","salúd","miedo","cuarentena","aburrición","frustración","COVID19","SARS","pandemia","contagio","muertes","inmudidad de rebaño","contingencia","letalidad","respiradores","mascarillas", "aislamiento social"]
+var words = ["soledad","ansiedad","coronavirus","depresión","crisis","recesión","respiradores","salúd","miedo","cuarentena","aburrición","frustración","COVID19","preocupación","pandemia","contagio","muertes","mortalidad","contingencia","letalidad","respiradores","mascarillas"]
 
 function type(id, word){
 	currStr = document.getElementById(id).innerHTML;
@@ -42,7 +42,7 @@ function changeOffset(element){
 
 $(document).ready(() => {
 	var wait = 0;
-	var maxWords = $(window).width() < 768? 350: 120;
+	var maxWords = $(window).width() < 768? 500: 350;
 	setTimeout(type, 50, "coronavirus", "coronavirus");
 	if($(window).width() < 768){
 		$("#coronavirus").offset({top:$(window).height() * .35, left:0});
@@ -54,11 +54,11 @@ $(document).ready(() => {
 	setTimeout(() => {
 		if($(window).width() >= 768){
 
-			$("#coronavirus").after('<p id="coronavirus1" style="font-size: 7vw;z-index: 9;text-align: center; position:absolute;width:100%;color:white;text-shadow: 7px 7px 15px black"></p>');
+			$("#coronavirus").after('<p id="coronavirus1" style="font-size: 7vw;z-index: 9;text-align: center; position:absolute;width:100%;color:white;text-shadow: 2px 2px 15px black"></p>');
 			$("#coronavirus1").offset({top:$(window).height() * .35, left:0});
 		}
 		else{
-			$("#coronavirus").after('<p id="coronavirus1" style="font-size: 10vw;z-index: 9;text-align: center; position:absolute;width:100%;color:white;text-shadow: 7px 7px 15px black"></p>');
+			$("#coronavirus").after('<p id="coronavirus1" style="font-size: 10vw;z-index: 9;text-align: center; position:absolute;width:100%;color:white;text-shadow: 2px 2px 15px black"></p>');
 			$("#coronavirus1").offset({top:$(window).height() * .4175, left: 0});
 		}
 		setTimeout(typeCoronavirus, 150);
