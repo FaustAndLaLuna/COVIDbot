@@ -14,7 +14,7 @@ var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: '2020covid19@gmail.com',
+    user: '2020cobot19@gmail.com',
     pass: 'cobot19cineautomatico'
   }
 });
@@ -64,7 +64,7 @@ router.post('/', function(req, res, next){
 					vidTable.createAssociated("SIN URL", filePath, fields.user, fields.email, fields.coords);
 
 					var mailOptions = {
-						from: '2020covid19@gmail.com',
+						from: '2020cobot19@gmail.com',
 						to: fields.email,
 						subject: 'Video recibido !',
 						text: 'El video que nos enviaste fue subido con éxito! \n\r Gracias por ser parte de nuestro proyecto!'
