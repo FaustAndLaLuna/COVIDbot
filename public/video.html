@@ -20,8 +20,7 @@
                 class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav">
                     <li class="nav-item" role="presentation" id="desktopBrand"><a class="nav-link active" href="#">bio-bot</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">archivos</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">texto</a></li>
+                    
                 </ul>
         </div>
         </div>
@@ -31,8 +30,9 @@
             <p class="card-text">Para subir recuerdo, dar click en Grabar, luego cuando estés satisfecho, debes dar click a Parar grabación.<br>Si estás satisfecho con tu video, puedes dar click en Subir. Si no lo estás, puedes volver a grabar dando click en Grabar.<br><br></p>
             <form action="/upload" method='POST' enctype="multipart/form-data" id="form">
 
-            <input class="text" name="user" id="user" value="" style="" placeholder="nombre">
-            <input class="text" name="email" id="email" value="" placeholder="email">
+            <input class="text" name="user" id="user" value="" style="" placeholder="nombre"><br />
+            <input class="text" name="email" id="email" value="" placeholder="email"><br />
+            <input class="text" name="emailVerif" id="emailVerif" value="" placeholder="verificar email"><br />
             <input class="hidden" name="coords" id="coords" value='{"lat":999,"long":999}' style="display:none;">
     <button class="btn btn-primary" type="button" style="background-color: rgb(0,0,0);" id="btn-start-recording" onclick="startRec()">Grabar</button>
     <button class="btn btn-primary" type="button" style="background-color: rgb(0,0,0);" id="btn-stop-recording" onclick="stopRec()">Parar Grabación</button>
@@ -48,7 +48,6 @@
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/typing.js"></script>
     <script>
         $(document).ready(() => {
             if(navigator.geolocation){

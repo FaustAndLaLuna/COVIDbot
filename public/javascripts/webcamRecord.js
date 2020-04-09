@@ -53,10 +53,16 @@ function sendDataToBackend(b64data){
 function upload() {
     text1 = document.getElementById('user').value;
     text2 = document.getElementById('email').value;
+    text3 = document.getElementById('emailVerif').value;
 	if(text1.length == 0 || text2.length == 0){
-		alert("Los datos no están llenos. Llenar los datos y luego volver a presionar el boton subir");
+		alert("Los datos no están llenos. Llena los datos y luego vuelve a presionar el boton subir");
 		return;
 	}
+    if(text2 != text3){
+        alert("La casilla de email y su verificación es distinta. Asegurate que tu email esté correctamente escrito");
+        return;
+    }
+
 	
     document.getElementById('btn-start-recording').disabled = true;
     document.getElementById('btn-stop-recording').disabled = true;
@@ -89,7 +95,6 @@ function upload() {
 */
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
-                window.location.replace("./success.html");
         } else if (xhr.readyState == 4 && xhr.status == 400 || xhr.readyState == 4 && xhr.status == 500) {
             alert("Error while Uploading - The admins have been notified. Please try again later")
         }
