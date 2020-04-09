@@ -9,6 +9,16 @@ var videosRepo = require('../conn/videosRepo');
 
 var vidTable = new videosRepo();
 
+var nodemailer = require('nodemailer');
+
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: '2020covid19@gmail.com',
+    pass: 'cobot19cineautomatico'
+  }
+});
+
 //<p><%= vid.title%><br><%= vid.description%><br><%= vid.tags%><br><%= vid.linkedObj%><br><%= vid.createdAt%></p>
 router.post('/', function(req, res, next){
 	//TODO: Add userID and objectID.
@@ -52,6 +62,22 @@ router.post('/', function(req, res, next){
 					}
 					let filePath = this.filePath;
 					vidTable.createAssociated("SIN URL", filePath, fields.user, fields.email, fields.coords);
+
+					var mailOptions = {
+						from: '2020covid19@gmail.com',
+						to: fields.email,
+						subject: 'Video recibido !',
+						text: 'El video que nos enviaste fue subido con éxito! \n\r Gracias por ser parte de nuestro proyecto!'
+					};
+
+					transporter.sendMail(mailOptions, function(error, info){
+						if (error) {
+							console.log(error);
+						} else {
+							console.log('Email sent: ' + info.response);
+						}
+					});
+
 					res.redirect("/gracias.html");
 					res.end();
 					console.log(files);

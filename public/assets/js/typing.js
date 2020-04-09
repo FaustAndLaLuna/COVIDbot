@@ -1,4 +1,4 @@
-var words = ["soledad","ansiedad","coronavirus","depresión","crisis","recesión","respiradores","salúd","miedo","cuarentena","aburrición","frustración","COVID19","preocupación","pandemia","contagio","muertes","mortalidad","contingencia","letalidad","respiradores","mascarillas"]
+var words = ["soledad","ansiedad","coronavirus","depresión","crisis","recesión","respiradores","salúd","miedo","cuarentena","aburrición","frustración","COVID19","preocupación","pandemia","contagio","muertes","mortalidad","contingencia","letalidad","respiradores","mascarillas", "pneumonia"]
 
 function type(id, word){
 	currStr = document.getElementById(id).innerHTML;
