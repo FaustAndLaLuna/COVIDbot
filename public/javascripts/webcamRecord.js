@@ -66,6 +66,10 @@ function upload() {
 	
     document.getElementById('btn-start-recording').disabled = true;
     document.getElementById('btn-stop-recording').disabled = true;
+
+
+
+    document.cookie = "name="+text1+"; Max-Age="+(60*60*24*365*4)+"; path='/'";
     
     var csrftoken = getCookie('csrftoken');
     var blob = recorder.getBlob();
@@ -100,6 +104,7 @@ function upload() {
         }
     };
     xhr.send(formData);
+    window.location.href = "/gracias.html";
 };
 
 function captureCamera(callback) {
