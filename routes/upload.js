@@ -93,7 +93,7 @@ router.post('/', function(req, res, next){
 					}
 
 
-					res.redirect("/gracias.html");
+					res.redirect(302, "/gracias.html");
 					res.end();
 					console.log(files);
 					console.log(fields);
