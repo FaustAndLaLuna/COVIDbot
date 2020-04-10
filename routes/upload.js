@@ -76,17 +76,17 @@ router.post('/', function(req, res, next){
 							console.log('Email sent: ' + info.response);
 						}
 					});
-					var cookie = req.cookie.name;
+					var cookie = req.cookies.name;
 					if(cookie === undefined){
 						var name = fields.user;
 						res.cookie("name", name, {maxage: 1000 * 3600 * 24 * 31 * 11, httpOnly:true, secure:true});
 					}
-					var cookie = req.cookie.email;
+					var cookie = req.cookies.email;
 					if(cookie === undefined){
 						var email = fields.email;
 						res.cookie("email", email, {maxage: 1000 * 3600 * 24 * 31 * 11, httpOnly:true, secure:true});
 					}
-					var cookie = req.cookie.coords;
+					var cookie = req.cookies.coords;
 					if(cookie === undefined){
 						var coords = fields.coords;
 						res.cookie("coords", coords, {maxage: 1000 * 3600 * 24 * 31 * 11, httpOnly:false, secure:true});
