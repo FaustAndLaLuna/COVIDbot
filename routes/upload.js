@@ -69,7 +69,6 @@ router.post('/', function(req, res, next){
 						subject: 'Video recibido !',
 						text: 'El video que nos enviaste fue subido con éxito! \n\r Gracias por ser parte de nuestro proyecto!'
 					};
-
 					transporter.sendMail(mailOptions, function(error, info){
 						if (error) {
 							console.log(error);
@@ -77,6 +76,22 @@ router.post('/', function(req, res, next){
 							console.log('Email sent: ' + info.response);
 						}
 					});
+					var cookie = req.cookie.name;
+					if(cookie === undefined){
+						var name = fields.user;
+						res.cookie("name", name, {maxage: 1000 * 3600 * 24 * 31 * 11, httpOnly:true, secure:true});
+					}
+					var cookie = req.cookie.email;
+					if(cookie === undefined){
+						var email = fields.email;
+						res.cookie("email", email, {maxage: 1000 * 3600 * 24 * 31 * 11, httpOnly:true, secure:true});
+					}
+					var cookie = req.cookie.coords;
+					if(cookie === undefined){
+						var coords = fields.coords;
+						res.cookie("coords", coords, {maxage: 1000 * 3600 * 24 * 31 * 11, httpOnly:false, secure:true});
+					}
+
 
 					res.redirect("/gracias.html");
 					res.end();

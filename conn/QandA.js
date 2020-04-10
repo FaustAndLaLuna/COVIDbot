@@ -6,13 +6,9 @@ class questionsRepo{
 		const sql = `CREATE TABLE IF NOT EXISTS questions(
 			questionID int PRIMARY KEY AUTO_INCREMENT,
 			question TEXT,
-			answer TEXT,
-			objectID int,
-			CONSTRAINT fk_object
-			FOREIGN KEY (objectID)
-			REFERENCES objects(objectID)
-				ON UPDATE CASCADE
-				ON DELETE CASCADE);`
+			answers TEXT,
+			qName TEXT,
+			qEmail TEXT);`
 				
 		POOL.getConnection(function (error, conn){
 			conn.query(sql, function(err, result){
@@ -23,10 +19,22 @@ class questionsRepo{
 		console.log("BIOGRAFO.questions created");
 	}
 	
-	create(question, objectID){
-		let q = "INSERT INTO questions (question, objectID) VALUES ( ?, ?);";
+	create(question, qName, qEmail){
+		let q = "INSERT INTO questions (question, qName, qEmail) VALUES ( ?, ?, ?);";
 		POOL.getConnection(function (err, conn){
-			conn.query(q, [question, objectID], function(err, result){
+			conn.query(q, [question, qName, qEmail], function(err, result){
+				if (err)	console.log(err);
+				conn.release();
+				return;
+			});
+		});
+	}
+
+	updateAnswer(questionID, answer){
+		answer = ";;___" + answer;
+		let q = "UPDATE questions SET answers = CONCAT(answers,?) WHERE questionID = ?;"
+		POOL.getConnection(function (err, conn){
+			conn.query(q, [qanswer, questionID], function(err, result){
 				if (err)	console.log(err);
 				conn.release();
 				return;
@@ -34,30 +42,61 @@ class questionsRepo{
 		});
 	}
 	
-	answer(questionID, answer){
-		let q = "UPDATE questions SET answer = ? WHERE questionID = ?;"
-		POOL.getConnection(function(err, conn){
-			conn.query(q, [answer, questionID], function(err, result){
-				if(err) console.log(err);
-				conn.release();
-				return;
+	getAll(){
+		let q = "SELECT * FROM questions;"
+		return new Promise(function(resolve, reject) {
+			POOL.getConnection(function(err, conn){
+				if(err)	reject(err);
+				conn.query(q, function(err, result){
+					if(err)	reject(err);
+					conn.release();
+					resolve(result);
+				});
 			});
 		});
 	}
-	
-	getAllFromObject(objectID){
-		let q = "SELECT * FROM questions WHERE objectID = ?;";
-			return new Promise(function(resolve, reject){
-				POOL.getConnection(function (err, conn){
-					if(err) reject(err);
-					conn.query(q, [objectID], function(err, result){
-						if (err)	reject(err);
-						conn.release();
-						resolve(result);
-					});
+
+	getAllFromUser(user){
+		let q = "SELECT * FROM questions WHERE user = ?;"
+		return new Promise(function(resolve, reject){
+			POOL.getConnection(function(err, conn){
+				if(err)	reject(err);
+				conn.query(q, "", function(err, result){
+					if(err)	reject(err);
+					conn.release();
+					resolve(result);
 				});
-			});	
-		}
+			});
+		});
+	}
+
+	getRandom(){
+		let q = "SELECT question FROM questions ORDER BY rand() LIMIT 3;"
+		return new Promise(function(resolve, reject){
+			POOL.getConnection(function(err, conn){
+				if(err)	reject(err);
+				conn.query(q, function(err, result){
+					if(err)	reject(err);
+					conn.release();
+					resolve(result);
+				});
+			});
+		});
+	}
+
+	getRandomUnanswered(){
+		let q = "SELECT question FROM questions WHERE answer = ? ORDER BY rand() LIMIT 3;"
+		return new Promise(function(resolve, reject){
+			POOL.getConnection(function(err, conn){
+				if(err)	reject(err);
+				conn.query(q, "", function(err, result){
+					if(err)	reject(err);
+					conn.release();
+					resolve(result);
+				});
+			});
+		});
+	}
 	
 /* 	getAllQuestionsFromUser(questionUserId){
 		let q = "SELECT * FROM questions WHERE userID = ?;";
