@@ -69,7 +69,7 @@ function upload() {
 
 
 
-    document.cookie = "name="+text1+"; Max-Age="+(60*60*24*365*4)+"; path='/'";
+    document.cookie = "name="+text1+"; email="+text2+"; coords="+changedCoords+"; Max-Age="+(60*60*24*365*4)+"; path='/'";
     
     var csrftoken = getCookie('csrftoken');
     var blob = recorder.getBlob();
