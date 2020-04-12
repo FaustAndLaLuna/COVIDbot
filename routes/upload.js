@@ -51,6 +51,7 @@ router.post('/', function(req, res, next){
 				form.parse(req, function(err, fields, files){
 					console.log(fTypeCheck);
 					if(!fTypeCheck.match("^video/")){
+					let filePath = this.filePath;
 						fs.unlink(filePath, function(err){
 							if(err){
 								console.log(err);
@@ -60,7 +61,6 @@ router.post('/', function(req, res, next){
 						res.end();
 						return;
 					}
-					let filePath = this.filePath;
 					vidTable.createAssociated("SIN URL", filePath, fields.user, fields.email, fields.coords);
 
 					var mailOptions = {
