@@ -1,5 +1,28 @@
 var words = ["soledad","ansiedad","coronavirus","depresión","crisis","recesión","respiradores","salúd","miedo","cuarentena","aburrición","frustración","COVID19","preocupación","pandemia","contagio","muertes","mortalidad","contingencia","letalidad","respiradores","mascarillas", "pneumonia"]
 
+function typeNotStopping(id, word){
+	currStr = document.getElementById(id).innerHTML;
+	if(currStr.length < word.length) {
+		document.getElementById(id).innerHTML = word.substring(0, currStr.length + 1);
+		setTimeout(typeNotStopping, 50 + Math.ceil(Math.random() * 16) - 8, id, word );
+	}
+	else{
+		setTimeout(untypeNotStopping, 238, id, word);
+	}
+}
+
+
+function untypeNotStopping(id, word){
+	currStr = document.getElementById(id).innerHTML;
+	if(currStr.length > 1){
+		document.getElementById(id).innerHTML = word.substring(0, currStr.length - 1);
+		setTimeout(untypeNotStopping, 75 + Math.ceil(Math.random() * 24) - 12, id, word);
+	}
+	else{
+		setTimeout(typeNotStopping, 50, id, words[Math.floor(Math.random() * words.length)]);
+	}
+}
+
 function type(id, word){
 	currStr = document.getElementById(id).innerHTML;
 	if(currStr.length < word.length) {
@@ -43,7 +66,7 @@ function changeOffset(element){
 $(document).ready(() => {
 	var wait = 0;
 	var maxWords = $(window).width() < 768? 500: 350;
-	setTimeout(type, 50, "coronavirus", "coronavirus");
+	setTimeout(typeNotStopping, 50, "coronavirus", "coronavirus");
 	if($(window).width() < 768){
 		$("#coronavirus").offset({top:$(window).height() * .35, left:0});
 	}
