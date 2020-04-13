@@ -31,11 +31,26 @@ var transporter = nodemailer.createTransport({
 
 //<p><%= vid.title%><br><%= vid.description%><br><%= vid.tags%><br><%= vid.linkedObj%><br><%= vid.createdAt%></p>
 router.get('/', function(req, res, next){
-	
+	QandA.getRandomUnanswered(2).then((result) => {
+		if(result !== "undefined"){
+			QandA.getRandom(3 - result.length).then( (r) => {
+				res.end(JSON.stringify([...result, ...r]));
+			});
+		}
+		else{
+			QandA.getRandom(3).then( (r) => {
+				res.end(JSON.stringify(r));
+			});
+		}
+	});
 });
 
 router.post('/', function(req, res, next){
-	
+	if(req.body.ask !== "undefined"){
+		QandA.create();
+	}
+	QandA.updateAnswer(req.body.ans, req.body.qId);
+	res.redirect('gracias.html')
 });
 
 

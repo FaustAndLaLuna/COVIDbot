@@ -17,6 +17,16 @@ class questionsRepo{
 			});
 		});
 		console.log("BIOGRAFO.questions created");
+		String.prototype.escape = function() {
+		    var tagsToReplace = {
+		        '&': '&amp;',
+		        '<': '&lt;',
+		        '>': '&gt;'
+		    };
+		    return this.replace(/[&<>]/g, function(tag) {
+		        return tagsToReplace[tag] || tag;
+		    });
+		};
 	}
 	
 	create(question, qName, qEmail){
@@ -31,10 +41,10 @@ class questionsRepo{
 	}
 
 	updateAnswer(questionID, answer){
-		answer = ";;___" + answer;
+		answer = answer.escape() + ";;___" ;
 		let q = "UPDATE questions SET answers = CONCAT(answers,?) WHERE questionID = ?;"
 		POOL.getConnection(function (err, conn){
-			conn.query(q, [qanswer, questionID], function(err, result){
+			conn.query(q, [answer, questionID], function(err, result){
 				if (err)	console.log(err);
 				conn.release();
 				return;
@@ -56,22 +66,22 @@ class questionsRepo{
 		});
 	}
 
-	getAllFromUser(user){
-		let q = "SELECT * FROM questions WHERE user = ?;"
-		return new Promise(function(resolve, reject){
-			POOL.getConnection(function(err, conn){
-				if(err)	reject(err);
-				conn.query(q, "", function(err, result){
-					if(err)	reject(err);
-					conn.release();
-					resolve(result);
-				});
-			});
-		});
-	}
+	// getAllFromUser(user){
+	// 	let q = "SELECT * FROM questions WHERE user = ?;"
+	// 	return new Promise(function(resolve, reject){
+	// 		POOL.getConnection(function(err, conn){
+	// 			if(err)	reject(err);
+	// 			conn.query(q, "", function(err, result){
+	// 				if(err)	reject(err);
+	// 				conn.release();
+	// 				resolve(result);
+	// 			});
+	// 		});
+	// 	});
+	// }
 
-	getRandom(){
-		let q = "SELECT question FROM questions ORDER BY rand() LIMIT 3;"
+	getRandom(limit){
+		let q = "SELECT question FROM questions ORDER BY rand() LIMIT "+limit+";"
 		return new Promise(function(resolve, reject){
 			POOL.getConnection(function(err, conn){
 				if(err)	reject(err);
@@ -84,8 +94,8 @@ class questionsRepo{
 		});
 	}
 
-	getRandomUnanswered(){
-		let q = "SELECT question FROM questions WHERE answer = ? ORDER BY rand() LIMIT 3;"
+	getRandomUnanswered(limit){
+		let q = "SELECT question FROM questions WHERE answer = ? ORDER BY rand() LIMIT "+limit+";"
 		return new Promise(function(resolve, reject){
 			POOL.getConnection(function(err, conn){
 				if(err)	reject(err);

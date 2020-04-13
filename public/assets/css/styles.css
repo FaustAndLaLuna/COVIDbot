@@ -1,3 +1,12 @@
+.questions {
+  width:60%;
+  padding: 1rem 15vw 1rem 15vw;
+}
+
+.pregunta {
+  font-size: 1.2rem;
+}
+
 .navbar {
   font-family: Hind, sans-serif;
   position: relative;
