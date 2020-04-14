@@ -49,7 +49,7 @@ router.post('/', function(req, res, next){
 	if(req.body.ask !== "undefined"){
 		if(req.body.name !== "undefined"){
 			if(req.body.email !== "undefined"){
-				QandA.create(req.body.email, );a
+				QandA.create(req.body.ask, req.body.name, req.body.email);
 			} else {
 				return;
 			}
@@ -57,7 +57,7 @@ router.post('/', function(req, res, next){
 			return;
 		}
 	}
-	QandA.updateAnswer(req.body.ans, req.body.qId);
+	QandA.updateAnswer(req.body.qId, req.body.ans);
 	res.redirect('gracias.html')
 });
 

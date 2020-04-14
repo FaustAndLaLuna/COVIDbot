@@ -65,7 +65,7 @@ function changeOffset(element){
 
 $(document).ready(() => {
 	var wait = 0;
-	var maxWords = $(window).width() < 768? 500: 350;
+	var maxWords = $(window).width() < 768? 750: 550;
 	setTimeout(typeNotStopping, 50, "coronavirus", "coronavirus");
 	if($(window).width() < 768){
 		$("#coronavirus").offset({top:$(window).height() * .35, left:0});
@@ -91,7 +91,7 @@ $(document).ready(() => {
 		$("#coronavirus").after('<p id="pandemia'+i+'" style="font-size: 5vw;z-index: 3;text-align: center; position:absolute;width = 100%;"></p>');
 		el = $("#pandemia"+i);
 		changeOffset(el);
-		wait = wait + 1500 * Math.exp(-0.25 * i) + 80;
+		wait = wait + 1500 * Math.exp(-0.6 * i) + 80;
 		//setTimeout(type, i * 150 + Math.random() * 1000, "pandemia" + i, words[Math.floor(Math.random() * words.length)]);
 		setTimeout(type, wait, "pandemia" + i, words[Math.floor(Math.random() * words.length)]);
 	}
