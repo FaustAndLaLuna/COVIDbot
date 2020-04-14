@@ -99,8 +99,9 @@
             offset.top = $("#q"+i).offset().top + $("#q" + i).height() / 2 - $("#graciasq" + i).height()/2; 
             $("#graciasq" + i).offset(offset);
             $("#q"+i).submit(function(event){
+                let val = $("#q"+i).serialize();
                 event.preventDefault();
-                $.post( "/questions", $("#q"+i).serialize(), function( response ) {
+                $.post( "/questions", val, function( response ) {
                     $(this).css("opacity", "0");
                     $("#graciasq"+i).css("opacity", "1");
                 });
