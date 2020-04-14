@@ -86,16 +86,9 @@
             };
         });
 
-        var post_url = {};
-        var form_data = {};
-
         $("#ask").submit(function(event){
             event.preventDefault(); 
-            post_url["ask"] = $(this).attr("action"); 
-            form_data["ask"] = $(this)//.serialize(); 
-            console.log(post_url["ask"]);
-            console.log(form_data["ask"]);
-            $.post( post_url["ask"], form_data, function( response ) {
+            $.post( "/questions", $("#ask").serialize(), function( response ) {
               $(this).css("opacity", "0");
               $("#graciasAsk").css("opacity", "1");
             });
@@ -107,9 +100,7 @@
             $("#graciasq" + i).offset(offset);
             $("#q"+i).submit(function(event){
                 event.preventDefault();
-                post_url["q"+i] = $(this).attr("action");
-                form_data["q"+i] = $(this).serialize(); 
-                $.post( post_url["q"+i], form_data["q"+i], function( response ) {
+                $.post( "/questions", $("#q"+i).serialize(), function( response ) {
                     $(this).css("opacity", "0");
                     $("#graciasq"+i).css("opacity", "1");
                 });
