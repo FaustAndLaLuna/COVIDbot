@@ -34,12 +34,13 @@ router.get('/', function(req, res, next){
 	QandA.getRandomUnanswered(2).then((result) => {
 		if(result !== "undefined"){
 			QandA.getRandom(3 - result.length).then( (r) => {
-				console.log(...result, ...r)
+				res.writeHead(200, { "Content-Type": "application/json" });
 				res.end(JSON.stringify([...result, ...r]));
 			});
 		}
 		else{
 			QandA.getRandom(3).then( (r) => {
+				res.writeHead(200, { "Content-Type": "application/json" });
 				res.end(JSON.stringify(r));
 			});
 		}
@@ -51,7 +52,8 @@ router.post('/', function(req, res, next){
 		if(req.body.name !== "undefined" &&  req.body.name !== null && !! req.body.name ){
 			if(req.body.email !== "undefined" &&  req.body.email !== null && !! req.body.email ){
 				QandA.create(req.body.ask, req.body.name, req.body.email);
-				res.redirect('gracias.html');
+				res.writeHead(200, { "Content-Type": "application/json" });
+				res.end();
 			} else {
 				return;
 			}
@@ -63,7 +65,9 @@ router.post('/', function(req, res, next){
 	if(req.body.qId !== "undefined" &&  req.body.qId !== null && !! req.body.ask ){
 		if(req.body.ans !== "undefined" &&  req.body.ans !== null && !! req.body.ans ){
 			QandA.updateAnswer(req.body.qId, req.body.ans);
-			res.redirect('gracias.html');
+			console.log(req.body);
+			res.writeHead(200, { "Content-Type": "application/json" });
+			res.end();
 		}
 	}
 });
