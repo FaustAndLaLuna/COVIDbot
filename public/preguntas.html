@@ -79,9 +79,10 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script>
     $(document).ready(() => {
-        qs = $.getJSON('/questions', (qs) =>{
+        $.getJSON('/questions', (qs) =>{
             for(i = 0; i < qs.length; i++){
-                $("#q"+(i+1)+"q").text(qs[i]);
+                let question  = qs[i]["question"].split('&').map(function(i) { return i.split('=');}).reduce(function(m,o){ m[o[0]] = o[1]; return m;},{});
+                $("#q"+(i+1)+"q").text(decodeURI(question["ask"]).replace("%3F", "?"));
             };
         });
 

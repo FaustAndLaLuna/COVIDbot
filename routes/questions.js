@@ -34,6 +34,7 @@ router.get('/', function(req, res, next){
 	QandA.getRandomUnanswered(2).then((result) => {
 		if(result !== "undefined"){
 			QandA.getRandom(3 - result.length).then( (r) => {
+				console.log(...result, ...r)
 				res.end(JSON.stringify([...result, ...r]));
 			});
 		}
