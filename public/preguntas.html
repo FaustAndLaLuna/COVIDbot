@@ -93,6 +93,8 @@
             event.preventDefault(); 
             post_url["ask"] = $(this).attr("action"); 
             form_data["ask"] = $(this).serialize(); 
+            console.log(post_url["ask"]);
+            console.log(form_data["ask"]);
             $.post( post_url["ask"], form_data, function( response ) {
               $(this).css("opacity", "0");
               $("#graciasAsk").css("opacity", "1");
