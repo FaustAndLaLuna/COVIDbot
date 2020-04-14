@@ -3,7 +3,7 @@ var router = express.Router();
 
 var videosRepo = require('../conn/QandA');
 
-var questionsRepo = new videosRepo();
+var QandA = new videosRepo();
 
 var nodemailer = require('nodemailer');
 
