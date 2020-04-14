@@ -59,6 +59,7 @@ router.post('/', function(req, res, next){
 			return;
 		}
 	}
+	console.log("qId : " + req.body.qId + "ans : " + req.body.ans)
 	QandA.updateAnswer(req.body.qId, req.body.ans);
 	res.redirect('gracias.html')
 });
