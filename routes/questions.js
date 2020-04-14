@@ -59,9 +59,13 @@ router.post('/', function(req, res, next){
 			return;
 		}
 	}
-	console.log("qId : " + req.body.qId + "ans : " + req.body.ans)
-	QandA.updateAnswer(req.body.qId, req.body.ans);
-	res.redirect('gracias.html')
+	console.log(req.body);
+	if(req.body.qId !== "undefined" &&  req.body.qId !== null && !! req.body.ask ){
+		if(req.body.ans !== "undefined" &&  req.body.ans !== null && !! req.body.ans ){
+			QandA.updateAnswer(req.body.qId, req.body.ans);
+			res.redirect('gracias.html');
+		}
+	}
 });
 
 
