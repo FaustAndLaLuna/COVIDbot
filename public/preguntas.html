@@ -28,31 +28,46 @@
     </nav>
 <!--     <p id="rightZIndex">Vos:</p> -->
     <!-- <p id="leftZIndex">Mundo:</p> -->
-    <p style="font-size: 1.4rem;text-align: center;">¿Tienes alguna duda que quieras preguntarle a la comunidad?</p>
-    <form id="ask" class="questions" action="/questions" method="post">
-        <p class="pregunta" id="askq"> preguntar: </p>
-        <input id="q1a" type="text" style="width:100%;" name="ask"></input>
-        <br> 
-        <button class="btn btn-primary" type="submit" style="background-color: rgb(0,0,0); margin: 7px 0 0 0px;" id="btn-upload1">contestar</button>
-    </form>
-
-     <p style="font-size: 1.4rem;text-align: center;">¿Quieres responder alguna pregunta?</p>
-    <form id="q1" class="questions" action="/questions" method="post">
-        <p class="pregunta" id="q1q"> pregunta? </p>
-        <input id="q1a" type="text" style="width:70%;" name="ans"></input>
-        <button class="btn btn-primary" type="submit" style="background-color: rgb(0,0,0);" id="btn-upload1">contestar</button>
-    </form>
-    <form id="q2" class="questions" action="/questions" method="post">
-        <p class="pregunta" id="q2q"> pregunta? </p>
-        <input id="q2a" type="text" style="width:70%;" name="ans"></input>
-        <button class="btn btn-primary" type="submit" style="background-color: rgb(0,0,0);" id="btn-upload1">contestar</button>
-    </form>
-    <form id="q3" class="questions" action="/questions" method="post">
-        <p class="pregunta" id="q3q"> pregunta? </p>
-        <input id="q3a" type="text" style="width:70%;" name="ans"></input>
-        <button class="btn btn-primary" type="submit" style="background-color: rgb(0,0,0);" id="btn-upload1">contestar</button>
-    </form>
-    
+    <div>
+        <p style="font-size: 1.4rem;text-align: center;">¿Tienes alguna duda que quieras preguntarle a la comunidad?</p>
+        <form id="ask" class="questions" action="/questions" method="post">
+            <p class="pregunta" id="askq"> preguntar: </p>
+            <input id="askQ" type="text" style="width:100%;" name="ask" placeholder="pregunta"></input> <br>
+            <input type="text" style="width:70%;" name='name' placeholder="nombre"></input>
+            <input type="text" style="width:70%;" name='email' placeholder="email"></input>
+            <br> 
+            <button class="btn btn-primary" type="submit" style="background-color: rgb(0,0,0); margin: 7px 0 0 0px;" id="btn-upload1">preguntar</button>
+        </form>
+        <p id="graciasAsk" class="graciasPreguntas" style=""> ¡Gracias! <br> La pregunta se ha hecho.</p>
+    </div>
+    <div>
+         <p style="font-size: 1.4rem;text-align: center;">¿Quieres responder alguna pregunta?</p>
+        <form id="q1" class="questions" action="/questions" method="post">
+            <p class="pregunta" id="q1q"> pregunta? </p>
+            <input id="q1a" type="text" style="width:70%;" name="ans"></input>
+            <input id="q1id" type="hidden" style="width:70%;display:none;" name="ans"></input>
+            <button class="btn btn-primary" type="submit" style="background-color: rgb(0,0,0);" id="btn-upload1">contestar</button>
+        </form>
+        <p id="graciasq1" class="graciasPreguntas" style=""> ¡Gracias! <br> Tu respuesta se ha guardado.</p>
+    </div>
+    <div>
+        <form id="q2" class="questions" action="/questions" method="post">
+            <p class="pregunta" id="q2q"> pregunta? </p>
+            <input id="q2a" type="text" style="width:70%;" name="ans"></input>
+            <input id="q2id" type="hidden" style="width:70%;display:none;" name="ans"></input>
+            <button class="btn btn-primary" type="submit" style="background-color: rgb(0,0,0);" id="btn-upload1">contestar</button>
+        </form>
+        <p id="graciasq2" class="graciasPreguntas" style=""> ¡Gracias! <br> Tu respuesta se ha guardado.</p>
+    </div>
+    <div>
+        <form id="q3" class="questions" action="/questions" method="post">
+            <p class="pregunta" id="q3q"> pregunta? </p>
+            <input id="q3a" type="text" style="width:70%;" name="ans"></input>
+            <input id="q3id" type="hidden" style="width:70%;display:none;" name="ans"></input>
+            <button class="btn btn-primary" type="submit" style="background-color: rgb(0,0,0);" id="btn-upload1">contestar</button>
+        </form>
+        <p id="graciasq3" class="graciasPreguntas" style=""> ¡Gracias! <br> Tu respuesta se ha guardado.</p>
+    </div>
     <a href="explanation.html" style="font-size: 1.4rem;text-align: center;position: relative;left: 18vw;">regresar</a>
     
     <div style="height:13vh;"> </div>
@@ -69,7 +84,36 @@
                 $("#q"+(i+1)+"q").text(qs[i]);
             };
         });
+
+        var post_url = {};
+        var form_data = {};
+
+        $("#ask").submit(function(event){
+            event.preventDefault(); 
+            post_url["ask"] = $(this).attr("action"); 
+            form_data["ask"] = $(this).serialize(); 
+            $.post( post_url["ask"], form_data, function( response ) {
+              $(this).css("opacity", "0");
+              $("#graciasAsk").css("opacity", "1");
+            });
+        });
+
+        for(i = 1; i < 4; i++){
+            offset = {top: 0, left: $("#graciasq"+i).offset().left};
+            offset.top = $("#q"+i).offset().top + $("#q" + i).height() / 2 - $("#graciasq" + i).height()/2; 
+            $("#graciasq" + i).offset(offset);
+            $("#q"+i).submit(function(event){
+                event.preventDefault();
+                post_url["q"+i] = $(this).attr("action");
+                form_data["q"+i] = $(this).serialize(); 
+                $.post( post_url["q"+i], form_data["q"+i], function( response ) {
+                    $(this).css("opacity", "0");
+                    $("#graciasq"+i).css("opacity", "1");
+                });
+            });
+        }
         
+
     });
     </script>
 

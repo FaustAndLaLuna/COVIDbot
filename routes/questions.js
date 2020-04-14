@@ -47,7 +47,15 @@ router.get('/', function(req, res, next){
 
 router.post('/', function(req, res, next){
 	if(req.body.ask !== "undefined"){
-		QandA.create();
+		if(req.body.name !== "undefined"){
+			if(req.body.email !== "undefined"){
+				QandA.create(req.body.email, );a
+			} else {
+				return;
+			}
+		} else {
+			return;
+		}
 	}
 	QandA.updateAnswer(req.body.ans, req.body.qId);
 	res.redirect('gracias.html')

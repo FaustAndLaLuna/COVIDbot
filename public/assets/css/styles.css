@@ -1,6 +1,24 @@
 .questions {
-  width:60%;
+  width:100%;
   padding: 1rem 15vw 1rem 15vw;
+  -webkit-transition: opacity 1s ease-out;
+  -moz-transition: opacity 1s ease-out;
+  -ms-transition: opacity 1s ease-out;
+  -o-transition: opacity 1s ease-out;
+  opacity: 1;
+}
+
+.graciasPreguntas {
+  position:absolute;
+  font-size:1.4rem; 
+  top:50%; 
+  left:50%;
+  transform:translate(-50%, -50%);
+  -webkit-transition: opacity 1s ease-in;
+  -moz-transition: opacity 1s ease-in;
+  -ms-transition: opacity 1s ease-in;
+  -o-transition: opacity 1s ease-in;
+  opacity: 0;
 }
 
 .pregunta {
