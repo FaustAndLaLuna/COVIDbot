@@ -53,7 +53,7 @@ class questionsRepo{
 	}
 	
 	getAll(){
-		let q = "SELECT * FROM questions;"
+		let q = "SELECT question, questionID FROM questions;"
 		return new Promise(function(resolve, reject) {
 			POOL.getConnection(function(err, conn){
 				if(err)	reject(err);
@@ -81,7 +81,7 @@ class questionsRepo{
 	// }
 
 	getRandom(limit){
-		let q = "SELECT question FROM questions ORDER BY rand() LIMIT "+limit+";"
+		let q = "SELECT question, questionID FROM questions ORDER BY rand() LIMIT "+limit+";"
 		return new Promise(function(resolve, reject){
 			POOL.getConnection(function(err, conn){
 				if(err)	reject(err);
@@ -95,7 +95,7 @@ class questionsRepo{
 	}
 
 	getRandomUnanswered(limit){
-		let q = "SELECT question FROM questions WHERE answers = ? ORDER BY rand() LIMIT "+limit+";"
+		let q = "SELECT question, questionID FROM questions WHERE answers = ? ORDER BY rand() LIMIT "+limit+";"
 		return new Promise(function(resolve, reject){
 			POOL.getConnection(function(err, conn){
 				if(err)	reject(err);

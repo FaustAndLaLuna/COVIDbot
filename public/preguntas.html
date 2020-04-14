@@ -79,11 +79,11 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script>
     $(document).ready(() => {
-        $.getJSON('/questions', (qs) =>{
-            for(i = 0; i < qs.length; i++){
-                let question  = qs[i]["question"].split('&').map(function(i) { return i.split('=');}).reduce(function(m,o){ m[o[0]] = o[1]; return m;},{});
-                $("#q"+(i+1)+"q").text(decodeURI(question["ask"]).replace("%3F", "?"));
-            };
+        $.getJSON('/questions', function(qs){
+            for(i = 1; i < 4; i++){
+                $("#q"+i+"q").text(qs[i-1].question);
+                $("#q"+i+"id").val(qs[i-1].questionID);  
+            }
         });
 
         $("#ask").submit(function(event){

@@ -51,6 +51,7 @@ router.post('/', function(req, res, next){
 		if(req.body.name !== "undefined"){
 			if(req.body.email !== "undefined"){
 				QandA.create(req.body.ask, req.body.name, req.body.email);
+				res.redirect('gracias.html');
 			} else {
 				return;
 			}
