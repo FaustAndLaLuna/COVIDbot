@@ -6,7 +6,7 @@ var vidPlayerRouter = require('./vidPlayer.js');
 var recuerdosRouter = require('./recuerdos.js');
 var uploadRouter 	= require('./upload.js');
 var recordRouter 	= require('./record.js');
-var questionsRouter	= require('./questionsRouter.js');
+var questionsRouter	= require('./questions.js');
 
 module.exports = function(app, passport){
 	
