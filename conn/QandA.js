@@ -95,7 +95,7 @@ class questionsRepo{
 	}
 
 	getRandomUnanswered(limit){
-		let q = "SELECT question FROM questions WHERE answer = ? ORDER BY rand() LIMIT "+limit+";"
+		let q = "SELECT question FROM questions WHERE answers = ? ORDER BY rand() LIMIT "+limit+";"
 		return new Promise(function(resolve, reject){
 			POOL.getConnection(function(err, conn){
 				if(err)	reject(err);
