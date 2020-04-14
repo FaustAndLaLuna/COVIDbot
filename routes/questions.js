@@ -47,9 +47,9 @@ router.get('/', function(req, res, next){
 });
 
 router.post('/', function(req, res, next){
-	if(req.body.ask !== "undefined"){
-		if(req.body.name !== "undefined"){
-			if(req.body.email !== "undefined"){
+	if(req.body.ask !== "undefined" &&  req.body.ask !== null && !! req.body.ask ){
+		if(req.body.name !== "undefined" &&  req.body.name !== null && !! req.body.name ){
+			if(req.body.email !== "undefined" &&  req.body.email !== null && !! req.body.email ){
 				QandA.create(req.body.ask, req.body.name, req.body.email);
 				res.redirect('gracias.html');
 			} else {
