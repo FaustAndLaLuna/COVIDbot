@@ -27,8 +27,7 @@
     </nav>
 <!--     <p id="rightZIndex">Vos:</p> -->
     <!-- <p id="leftZIndex">Mundo:</p> -->
-    <p class="coronavirus" style="font-size: 1.4rem">cobot19<br> <span style="font-size: 1rem">Intuimos que todas las épocas fueron apocalípticas, que los hombres siempre han soñado con el fin del mundo para vislumbrar su propia finitud. Pero el covid-19 levanta la voz estrepitosamente y replica, en cada uno, los miedos e incógnitas. Las preguntas se repiten desde el fondo de la historia hasta llegar a lugares comunes. <br>Lo que no se repite es la vida. <br>Nuestra vida. <br>Este tiempo. </span>
-    <br>
+    <p class="coronavirus" style="font-size: 1.4rem"><br> <span style="font-size: 1rem">Intuimos que todas las épocas fueron apocalípticas, que los hombres siempre han soñado con el fin del mundo para vislumbrar su propia finitud. Pero el covid-19 levanta la voz estrepitosamente y replica, en cada uno, los miedos e incógnitas. Las preguntas se repiten desde el fondo de la historia hasta llegar a lugares comunes. <br>Lo que no se repite es la vida. <br>Nuestra vida. <br>Este tiempo. </span>
     <br>
     <p class="coronavirus">
         <span style="font-size:1.4rem">fase 1: registrar: </span><br>
@@ -44,27 +43,16 @@
 
         En una segunda fase de <span style="font-size: 1.2rem">pandemia</span> vamos a implementar formas de edición automáticas. Estamos desarrollando <span style="font-weight: bolder">cobot19</span>: un robot que editará los clips de manera automática para reflexionar sobre la disyuntiva, que falazmente enuncian los medios: ¿economía o vida?. <br><br>
 
-        ¿No es la economía un sistema simbólico que hemos creado?<br>
+       <!--  ¿No es la economía un sistema simbólico que hemos creado?<br>
         ¿No son nuestros cuerpos los soportes reales del plusvalor?<br> <br>
 
-        <span style="font-weight: bolder">cobot19</span> seleccionará y editará los videos recopilados (tu tiempo donado al proyecto) contrastándolo con valores macroeconómicos. Intentará visibilizar cómo la economía internaliza la ética y moral de nuestras sociedades y reflexionar sobre nuestro lugar en el mundo.  <br> <br>
+        <span style="font-weight: bolder">cobot19</span> seleccionará y editará los videos recopilados (tu tiempo donado al proyecto) contrastándolo con valores macroeconómicos. Intentará visibilizar cómo la economía internaliza la ética y moral de nuestras sociedades y reflexionar sobre nuestro lugar en el mundo.  <br> <br> -->
 
 
         <br><br></p>
 
 
     <div id="att" style="position:fixed; width:100%; height:100%; background:black; opacity:.2; z-index: 7; top: 0; left: 0;"> </div>
-
-    <div id="preguntas">
-        <p id="counter" style="color:#999999; font-size: 1.8rem; padding: 8px 0 0 12px "> 8</p>
-        <p id="Qs" style="padding-top: 8vh; text-align:center;"> 
-            ¿Es el fin del mundo tal como lo conocemos? <br>
-            ¿Es el fin del capitalismo tal como lo conocemos?<br>
-            ¿Es el fin del capitalismo?<br>
-            ¿Es el principio del fin?<br>
-            ¿Es la nueva gran depresión?<br>
-        </p>
-    </div>
 
     <div style="height:13vh;"> </div>
     <div class="footer-basic">
@@ -73,32 +61,6 @@
 
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script>
-
-        function countdown(time){
-            time -= 1000;
-            $("#counter").html(time/1000)
-            if(time > 999){
-                setTimeout(countdown, 1000, time)
-            } else {
-                $("#preguntas").css("display", "none");
-                $("#att").css("display", "none");
-            }
-        }
-
-        offset = {top: 0, left: 0}
-        offset.top = - $("#Qs").offset().top/2;
-        offset.left = $("#Qs").offset().left;
-        offset.top += $("#preguntas").height()/2;
-        offset.top -= $("Qs").height()/2;
-
-        $("#Qs").offset(offset);
-
-        $(document).ready(() => {
-            countdown(16000);
-        });
-
-    </script>
 </body>
 
 </html>

@@ -61,11 +61,9 @@ router.post('/', function(req, res, next){
 			return;
 		}
 	}
-	console.log(req.body);
 	if(req.body.qId !== "undefined" &&  req.body.qId !== null && !! req.body.qId ){
 		if(req.body.ans !== "undefined" &&  req.body.ans !== null && !! req.body.ans ){
 			QandA.updateAnswer(req.body.qId, req.body.ans);
-			console.log(req.body);
 			res.writeHead(200, { "Content-Type": "application/json" });
 			res.end();
 		}

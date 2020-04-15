@@ -232,6 +232,7 @@ body {
 }
 @media (min-width: 768px){
   .coronavirus {
+    line-height: 1.4 rem;
     position: relative;
     padding-top: 7vh;
     padding-right: 20vw;
@@ -243,6 +244,7 @@ body {
 }
 @media (max-width: 767px){
   .coronavirus {
+    line-height: 1.4rem;
     position: relative;
     padding-top: 7vh;
     font-size: 1rem;
