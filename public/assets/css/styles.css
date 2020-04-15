@@ -249,7 +249,7 @@ body {
     position: relative;
     padding-top: 7vh;
     font-size: 1rem;
-    text-align: center;
+    text-align: justify;
     z-index: 2;
   }
 }
