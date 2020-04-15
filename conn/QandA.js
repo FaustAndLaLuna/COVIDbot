@@ -30,9 +30,9 @@ class questionsRepo{
 	}
 	
 	create(question, qName, qEmail){
-		let q = "INSERT INTO questions (question, qName, qEmail) VALUES ( ?, ?, ?);";
+		let q = "INSERT INTO questions (question, qName, qEmail, answers) VALUES ( ?, ?, ?, ?);";
 		POOL.getConnection(function (err, conn){
-			conn.query(q, [question, qName, qEmail], function(err, result){
+			conn.query(q, [question, qName, qEmail, ""], function(err, result){
 				if (err)	console.log(err);
 				conn.release();
 				return;
@@ -42,7 +42,7 @@ class questionsRepo{
 
 	updateAnswer(questionID, answer){
 		answer = answer.escape() + ";;___" ;
-		let q = "UPDATE questions SET answers = CONCAT(answers,?) WHERE questionID = ?;"
+		let q = "UPDATE questions SET answers = CONCAT(answers,?) WHERE questionId = ?;"
 		POOL.getConnection(function (err, conn){
 			conn.query(q, [answer, questionID], function(err, result){
 				if (err)	console.log(err);
