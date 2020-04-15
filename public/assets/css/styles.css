@@ -225,7 +225,6 @@ body {
   #coronavirus { 
     text-align: justify;
     position: relative;
-    padding: 4vh 2vw 2vh 2vw;
     font-size: 16px;
     text-align: center;
     z-index: 2;
@@ -247,7 +246,7 @@ body {
   .coronavirus {
     line-height: 1.4rem;
     position: relative;
-    padding: 4vh 2vw 2vh 2vw;
+    padding: 4vh 5vw 2vh 5vw;
     font-size: 1rem;
     text-align: justify;
     z-index: 2;
