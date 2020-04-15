@@ -247,7 +247,7 @@ body {
   .coronavirus {
     line-height: 1.4rem;
     position: relative;
-    padding-top: 7vh;
+    padding: 4vh 2vw 2vh 2vw;
     font-size: 1rem;
     text-align: justify;
     z-index: 2;
