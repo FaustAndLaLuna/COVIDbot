@@ -222,9 +222,10 @@ body {
   }
 }
 @media (max-width: 767px){
-  #coronavirus {
+  #coronavirus { 
+    text-align: justify;
     position: relative;
-    padding-top: 7vh;
+    padding: 4vh 2vw 2vh 2vw;
     font-size: 16px;
     text-align: center;
     z-index: 2;
@@ -234,11 +235,11 @@ body {
   .coronavirus {
     line-height: 1.4 rem;
     position: relative;
-    padding-top: 7vh;
+    padding-top: 4vh;
     padding-right: 20vw;
     padding-left: 20vw;
     font-size: 1rem;
-    text-align: center;
+    text-align: justify;
     z-index: 2;
   }
 }
