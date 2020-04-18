@@ -27,21 +27,28 @@
     </nav>
 <!--     <p id="rightZIndex">Vos:</p> -->
     <!-- <p id="leftZIndex">Mundo:</p> -->
-    <div  id="videosContainer">
-		
-<!--
-		<a href="" id="videoLink">
-			<img src="https://miro.medium.com/max/1400/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg" loading="lazy" id="videoImage"/>
-		</a><a href="" id="videoLink">
-			<img src="https://miro.medium.com/max/1400/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg" loading="lazy" id="videoImage"/>
-		</a><a href="" id="videoLink">
-			<img src="https://miro.medium.com/max/1400/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg" loading="lazy" id="videoImage"/>
-		</a>
-		<br>
-		<p style="text-align:center;">1 2 3</p>
--->
-		
-	</div>
+        <p class="coronavirus" style="font-size: 1.4rem; line-height:1.4rem;"><span style="font-size: 1rem; padding: 4vh 5vw 2vh 5vw;">Intuimos que todas las épocas fueron apocalípticas, que los hombres siempre han soñado con el fin del mundo para vislumbrar su propia finitud. Pero el covid-19 levanta la voz estrepitosamente y replica, en cada uno, los miedos e incógnitas. Las preguntas se repiten desde el fondo de la historia hasta llegar a lugares comunes. Lo que no se repite es la vida. Nuestra vida. Este tiempo. </span>
+    <br>
+    <p class="coronavirus">
+        <span style="font-size:1.4rem">fase 1: registrar: </span><br>
+        <span style="font-size:1.2rem">(la vista como forma extendida del tacto) </span><br><br>
+
+        Mientras dure la cuarentena vamos a registrar como podamos, desde nuestras ventanas, en la intimidad, durante las búsquedas de alimentos. 
+        Te pedimos que te sumes para hacer un registro crítico de esta realidad.
+
+        <br><br><a style="font-size: 1.2rem;color:red;text-align:right;direction:rtl; width:100%;" href="videos">grabar</a>
+        <br><a style="font-size: 1.2rem;text-align:center;color:blue;text-align:right;direction:rtl;width:100%;" href="subirVideo.html">subir un video.</a><br> <br>
+        <span style="font-size:1.4rem">fase 2: editar: </span><br>
+        <span style="font-size:1.2rem">(la razón como forma extendida de la ficción)</span><br><br>
+
+        En una segunda fase de <span style="font-size: 1.2rem">pandemia</span> vamos a implementar formas de edición automáticas. Estamos desarrollando <span style="font-size: 1.2rem">cobot19</span>: un robot que editará los clips de manera automática para reflexionar sobre la disyuntiva, que falazmente enuncian los medios: ¿economía o vida?. <br><br>
+
+       <!--  ¿No es la economía un sistema simbólico que hemos creado?<br>
+        ¿No son nuestros cuerpos los soportes reales del plusvalor?<br> <br>
+        <span style="font-weight: bolder">cobot19</span> seleccionará y editará los videos recopilados (tu tiempo donado al proyecto) contrastándolo con valores macroeconómicos. Intentará visibilizar cómo la economía internaliza la ética y moral de nuestras sociedades y reflexionar sobre nuestro lugar en el mundo.  <br> <br> -->
+
+
+        <br><br></p>
 
     <div style="height:13vh;"> </div>
     <div class="footer-basic">
@@ -50,34 +57,7 @@
 
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-	<script>
-		function getUrlVars() {
-			var vars = [], hash;
-			var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-			for(var i = 0; i < hashes.length; i++) {
-				hash = hashes[i].split('=');
-				vars.push(hash[0]);
-				vars[hash[0]] = hash[1];
-			}
-			return vars;
-		}
-		
-		var toInsert = "";
-		var counter = 0;
-		
-		$(document).ready(() => {
-			var res = ""; //'?page='+getUrlVars()["page"] ? window.location.href.search('page') != -1 : """";
-			 $.getJSON('/archivos' + res, function(archivos){
-				 console.log(archivos);
-				archivos.forEach((archivo) =>{
-					if(archivo.videoURL == 'SIN URL')
-						return;
-					let toInsert = '<a href="/vid'+archivo.videoURL+'" id="videoLink'+counter+'"><img src="/thumbs'+archivo.videoURL.replace("mp4", "png")+'" loading="lazy" id="videoImage'+(counter++)+'" class="videoImage"/></a>';
-					$('#videosContainer').append(toInsert);
-				});
-			});
-		});
-	</script>
+	
 </body>
 
 </html>
