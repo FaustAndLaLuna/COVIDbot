@@ -64,6 +64,7 @@
 		var counter = 0;
 		
 		$(document).ready(() => {
+			var res = "?page="+getUrlVars()["page"] ? window.location.href.search("?page=") != -1 : "";
 			 $.getJSON('/archivos' + res, function(archivos){
 				archivos.forEach((archivo) =>{
 					if(archivo.videoURL == 'SIN URL')
