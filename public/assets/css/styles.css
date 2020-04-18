@@ -264,3 +264,13 @@ body {
   }
 }
 
+
+#videosContainer {
+	width:66%;
+	margin: 0 15% 0 15%;
+}
+
+#videoImage {
+	width:32%;
+	margin 0 1% 1% 0;
+}

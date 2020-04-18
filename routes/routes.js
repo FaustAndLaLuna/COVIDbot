@@ -18,12 +18,11 @@ module.exports = function(app, passport){
 	app.use('/upload', uploadRouter);
 	app.use('/videos.html', recordRouter);
 
-	app.use("/recuerdos.html", recuerdosRouter);
+	app.use("/archivos", recuerdosRouter);
 	app.use("/videos", recordRouter);
 
 	app.use("/questions", questionsRouter);
-	//app.use("/questions", questionsRouter);
-
+	
 	//Routers: Return all questions and answers.
 	//Ask a question
 	//Answer a question and send a mail
