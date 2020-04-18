@@ -72,7 +72,7 @@
 				archivos.forEach((archivo) =>{
 					if(archivo.videoURL == 'SIN URL')
 						return;
-					let toInsert = '<a href="/vid'+archivo.videoURL+'" id="videoLink'+counter+'"><img src="/thumbs'+archivo.videoURL.replace("mp4", "png")+'" loading="lazy" id="videoImage'+(counter++)+'"/></a>';
+					let toInsert = '<a href="/vid'+archivo.videoURL+'" id="videoLink'+counter+'"><img src="/thumbs'+archivo.videoURL.replace("mp4", "png")+'" loading="lazy" id="videoImage'+(counter++)+'" class="videoImage"/></a>';
 					$('#videosContainer').append(toInsert);
 				});
 			});

@@ -270,7 +270,10 @@ body {
 	margin: 0 15% 0 15%;
 }
 
-#videoImage {
-	width:32%;
-	margin 0 1% 1% 0;
+.videoImage {
+	object-fit: cover;
+	width:21vw;
+	height:21vw;
+	margin: 0 0.33% 0.33% 0;
+	
 }
