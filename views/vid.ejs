@@ -36,7 +36,7 @@
 	<div id="vidContainer" style="width:100%;">
 		<video controls="true" type='video/mp4' src="<%= "/uploads"+ videoURL %>" preload="metadata" playsinline style="height:30vh; width:30vw; position:relative; margin-left:40vw; transform: translate(-50%, 0);">
     	</video>
-		<p style="position:relative; margin-left:40vw; transform: translate(-50%, 0)"> Autor: <%= author %> </p>
+		<p style="position:relative; margin-left:40vw; transform: translate(-50%, 0); text-align:center;"> Autor: <%= author %> </p>
 		<button class="btn btn-primary" type="button" style="background-color: rgb(0,0,0);position:relative; margin-left:40vw; transform: translate(-50%, 0)" id="btn-upload" onclick="contactar()">Contactar al Autor</button>
     <br />
 	</div>
@@ -80,7 +80,7 @@
 					if(archivo.videoURL == 'SIN URL' || displayCounter++ > DISPLAYCOUNTERMAX)
 						return;
 					let toInsert = '<a href="/vid'+archivo.videoURL+'" id="videoLink'+counter+'"><img src="/thumbs'+archivo.videoURL.replace("mp4", "png")+'" loading="lazy" id="videoImage'+(counter++)+'" class="videoImageHorizontal"/></a>';
-					$('#videosContainer').append(toInsert);
+					$('#videosContainerHorizontal').append(toInsert);
 				});
 			});
 			
