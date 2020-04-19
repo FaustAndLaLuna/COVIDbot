@@ -286,7 +286,7 @@ body {
 
 #videosContainerHorizontal {
 	width:66%;
-	margin: 0 15% 0 15%;
+	margin: 0 13% 0 13%;
 	display: grid;
 	grid-template-rows: 10vh;
 	grid-template-columns: auto auto auto;
