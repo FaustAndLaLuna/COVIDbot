@@ -128,10 +128,10 @@ class videosRepo{
 		});
 	}
 
-	getAuthorFromURL (URL){
+	getAuthorFromURL(URL){
 		return new Promise(function (resolve, reject){
 			POOL.getConnection(function(error, conn){
-				if(err) reject(err);
+				if(error) reject(error);
 				conn.query("SELECT user FROM videos WHERE videoURL = ?", [URL], function(err, result){
 					conn.release();
 					if(err) reject(err);
