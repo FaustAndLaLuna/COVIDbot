@@ -128,6 +128,19 @@ class videosRepo{
 		});
 	}
 
+	getAuthorFromURL (URL){
+		return new Promise(function (resolve, reject){
+			POOL.getConnection(function(error, conn){
+				if(err) reject(err);
+				conn.query("SELECT user FROM videos WHERE videoURL = ?", [URL], function(err, result){
+					conn.release();
+					if(err) reject(err);
+					return resolve(result[0]);
+				});
+			});
+		});
+	}
+	
 	getNextEncodable(){
 		return new Promise(function (resolve, reject){
 			POOL.getConnection(function(err, conn){
