@@ -277,6 +277,17 @@ body {
 	margin: 0 0.33% 0.33% 0;
 }
 
+@media(max-width: 767px){
+	.videoImageHorizontal{
+	width: 66%;
+    margin: 0 10% 0 10%;
+    display: grid;
+    grid-template-rows: 10vh 10vh;
+    grid-template-columns: auto auto auto;
+    column-gap: .33vw;
+	}
+}
+
 .videoImageHorizontal {
 	object-fit: cover;
 	width:10vh;
