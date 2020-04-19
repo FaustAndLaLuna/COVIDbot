@@ -68,9 +68,10 @@
 
 footer{
   position:fixed;
-  top:83%;
+  top:93%;
+  height:8%;
   width:100%;
-  padding: 5vh 0 5vh 0;
+  padding: 2vh 0 2vh 0;
   background:white;
   z-index:9;
   border-style:groove;
