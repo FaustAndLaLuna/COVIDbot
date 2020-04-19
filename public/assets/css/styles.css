@@ -8,6 +8,10 @@
   opacity: 1;
 }
 
+.social-share iframe {
+  vertical-align: middle; 
+}
+
 .graciasPreguntas {
   position:absolute;
   font-size:1.4rem; 
