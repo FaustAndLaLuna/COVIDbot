@@ -135,8 +135,7 @@ class videosRepo{
 				conn.query("SELECT user FROM videos WHERE videoURL = ?", [URL], function(err, result){
 					conn.release();
 					if(err) reject(err);
-					console.log(result);
-					return resolve(result[0]);
+					return resolve(result[0].user);
 				});
 			});
 		});
