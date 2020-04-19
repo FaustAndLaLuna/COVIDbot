@@ -14,6 +14,8 @@
 </head>
 
 <body>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v6.0&appId=1423825864390626&autoLogAppEvents=1"></script>
     <nav class="navbar navbar-light navbar-expand-md">
         <div class="container-fluid"><a class="navbar-brand" href="/" style="font-family: Hind, sans-serif;font-style: normal;">cobot19</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div
@@ -45,7 +47,14 @@
     
     <div style="height:13vh;"> </div>
     <div class="footer-basic">
-        <footer><a href="/nosotros.html">nosotros</a><div></div><a href="#">aviso de privacidad</a></footer>
+        <footer>
+            <a href="/nosotros.html">nosotros</a><a href="#">aviso de privacidad</a>
+            <div style="left: 50%;position: relative;transform: translate(-87px,0);">
+                <div style="transform: translate(0, -8px);" class="fb-share-button" data-href="https://www.cobot19.com" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.cobot19.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a></div>
+                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Hola! Estoy participando en la creación de un documental comunal de la cuarentena. ¿Quieres participar?" data-url="https://www.cobot19.com" data-hashtags="cobot19" data-lang="en" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+
+        </footer>
     </div>
 
     <script src="assets/js/jquery.min.js"></script>
