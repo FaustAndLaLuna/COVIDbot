@@ -66,7 +66,7 @@ function changeOffset(element){
 $(document).ready(() => {
 	var wait = 0;
 	var maxWords = $(window).width() < 768? 750: 550;
-	setTimeout(typeNotStopping, 50, "coronavirus", "coronavirus");
+	setTimeout(typeNotStopping, 50, "coronavirus", "cobot19");
 	if($(window).width() < 768){
 		$("#coronavirus").offset({top:$(window).height() * .35, left:0});
 	}
