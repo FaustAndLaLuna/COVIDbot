@@ -73,6 +73,9 @@
                 alert("La casilla de email y su verificación es distinta. Asegurate que tu email esté correctamente escrito");
                 return;
             }
+			
+			document.cookie = "name="text1;
+			document.cookie = "email="text2;
 
             $("#form").submit();
         }

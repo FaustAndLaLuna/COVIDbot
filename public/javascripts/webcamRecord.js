@@ -66,6 +66,8 @@ function upload() {
 	
     document.getElementById('btn-start-recording').disabled = true;
     document.getElementById('btn-stop-recording').disabled = true;
+	document.cookie = "user="+$("#user").val();
+	document.cookie = "email="+$("#email").val();
 
 
 

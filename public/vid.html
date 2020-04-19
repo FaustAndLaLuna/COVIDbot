@@ -5,16 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Coronavirus</title>
-    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Hind">
-    <link rel="stylesheet" href="/assets/css/Footer-Basic.css">
-    <link rel="stylesheet" href="/assets/css/styles.css">
-	<script>
-		function contactar(){
-			alert("Función siendo programada");
-		}
-	</script>
-	
+    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body>
@@ -34,11 +28,8 @@
 <!--     <p id="rightZIndex">Vos:</p> -->
     <!-- <p id="leftZIndex">Mundo:</p> -->
 	<div id="vidContainer" style="width:100%;">
-		<video controls="true" type='video/mp4' src="<%= "/uploads"+ videoURL %>" preload="metadata" playsinline style="height:30vh; width:30vw; position:relative; margin-left:40vw; transform: translate(-50%, 0);">
+		<video controls="true" type='video/mp4' src="<%= "/uploads"+ videoURL %>" preload="metadata" playsinline style="height:30vh; width:30vw; margin-left:40vw; transform: translate(-50%, 0);position:relative;">
     	</video>
-		<p style="position:relative; margin-left:40vw; transform: translate(-50%, 0); text-align:center;"> Autor: <%= author %> </p>
-		<button class="btn btn-primary" type="button" style="background-color: rgb(0,0,0);position:relative; margin-left:40vw; transform: translate(-50%, 0)" id="btn-upload" onclick="contactar()">Contactar al Autor</button>
-    <br />
 	</div>
     <div  id="videosContainerHorizontal" >
 
@@ -49,8 +40,8 @@
         <footer><a href="/nosotros.html">nosotros</a><div></div><a href="#">aviso de privacidad</a></footer>
     </div>
 
-    <script src="/assets/js/jquery.min.js"></script>
-    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 	<script>
 		function shuffle(array) {
 			var currentIndex = array.length, temporaryValue, randomIndex;
@@ -70,7 +61,7 @@
 		var toInsert = "";
 		var counter = 0;
 		var displayCounter = 0;
-		var DISPLAYCOUNTERMAX = 8;
+		var DISPLAYCOUNTERMAX = 7;
 		
 		$(document).ready(() => {
 			var res = ""; //'?page='+getUrlVars()["page"] ? window.location.href.search('page') != -1 : """";
@@ -80,7 +71,7 @@
 					if(archivo.videoURL == 'SIN URL' || displayCounter++ > DISPLAYCOUNTERMAX)
 						return;
 					let toInsert = '<a href="/vid'+archivo.videoURL+'" id="videoLink'+counter+'"><img src="/thumbs'+archivo.videoURL.replace("mp4", "png")+'" loading="lazy" id="videoImage'+(counter++)+'" class="videoImageHorizontal"/></a>';
-					$('#videosContainerHorizontal').append(toInsert);
+					$('#videosContainer').append(toInsert);
 				});
 			});
 			
