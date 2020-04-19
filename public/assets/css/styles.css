@@ -291,6 +291,6 @@ body {
 	margin: 0 15% 0 15%;
 	display: grid;
 	grid-template-rows: 10vh;
-	grid-template-columns: auto auto auto auto auto auto auto;
+	grid-template-columns: auto auto auto;
 	column-gap: .33vw;
 }
