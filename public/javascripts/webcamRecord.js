@@ -1,6 +1,28 @@
 var recorder = null; 
 var video;
+var words = ["subiendo..."];
+		function typeNotStopping(id, word){
+			currStr = document.getElementById(id).innerHTML;
+			if(currStr.length < word.length) {
+				document.getElementById(id).innerHTML = word.substring(0, currStr.length + 1);
+				setTimeout(typeNotStopping, 50 + Math.ceil(Math.random() * 16) - 8, id, word );
+			}
+			else{
+				setTimeout(untypeNotStopping, 238, id, word);
+			}
+		}
 
+		function untypeNotStopping(id, word){
+			currStr = document.getElementById(id).innerHTML;
+			if(currStr.length > 1){
+				document.getElementById(id).innerHTML = word.substring(0, currStr.length - 1);
+				setTimeout(untypeNotStopping, 75 + Math.ceil(Math.random() * 24) - 12, id, word);
+			}
+			else{
+				setTimeout(typeNotStopping, 50, id, words[Math.floor(Math.random() * words.length)]);
+			}
+		}
+		
 function getCookie(name) {
     var cookieValue = null;
     if (document.cookie && document.cookie != '') {
@@ -64,6 +86,10 @@ function upload() {
     }
 
 	
+	$("#greyout").css("visibility","visible");
+	$("#uploading").css("visibility","visible");
+	typeNotStopping("divCargando", "subiendo...");
+	
     document.getElementById('btn-start-recording').disabled = true;
     document.getElementById('btn-stop-recording').disabled = true;
 	document.cookie = "user="+$("#user").val();
@@ -102,7 +128,7 @@ function upload() {
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
         } else if (xhr.readyState == 4 && xhr.status == 400 || xhr.readyState == 4 && xhr.status == 500) {
-            alert("Error while Uploading - The admins have been notified. Please try again later")
+            alert("Error while Uploading - The admins have been notified. Please try again later");
         }
     };
     xhr.send(formData);

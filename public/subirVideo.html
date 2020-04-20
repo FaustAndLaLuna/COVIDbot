@@ -33,8 +33,7 @@
     <!-- <p id="leftZIndex">Mundo:</p> --><div id="video"> <h4 class="card-title">sube un video</h4>
             <p style="margin-left: 7%;margin-right: 7%;">Seleccionar video para subir, luego llenar la información y presionar "subir."</p>
     <form style="background-color: rgb(228,228,228); padding: 3vh 3vw 3vh 3vw" action="/upload" method="POST" enctype="multipart/form-data" id="form">
-        <p>Podes grabar tu ventana, tu cotidianidad, hablar mientras registras contándonos la situación, hacer una entrevista o lo que quieras en tu experiencia en la cuarentena. <br><br>
-Podés hablar mientras grabas, este texto servirá mucho en el momento de la edición automática. <br><br>
+        <p>Podes grabar tu ventana, tu cotidianidad, hablar mientras registras contándonos la situación, hacer una entrevista o lo que quieras en tu experiencia en la cuarentena. 
 Estas palabras serán la base de la narración de la película que estamos entre todes registrando. <br><br>
 </p>
         <input class="text" name="user" id="user" value="" style="" placeholder="nombre">
@@ -47,7 +46,7 @@ Estas palabras serán la base de la narración de la película que estamos entre
     </form>
     <p class="footer-basic"></p>
     <hr>
-    
+	</div>
     <div style="height:13vh;"> 
 <!--
         <div style="left: 50%;position: relative;transform: translate(-87px,0); position:relative;">
@@ -67,11 +66,39 @@ Estas palabras serán la base de la narración de la película que estamos entre
             </div>
         </footer>
     </div>
+	
+	<div id="uploading" style="position:fixed; top:20%; left:20%; width:60%; height:60%; z-index:9; background: white; visibility: hidden;">
+		<p id="divCargando" style="font-size:3rem; top:50%; position:relative; text-align: center;"></p>
+	</div>
+	<div id="greyout" style="position:fixed; width:100%; height:100%; z-index:8; background:black; opacity:0.6; top:0;left:0;visibility: hidden;"></div>
 
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     
     <script>
+		var words = ["subiendo..."];
+		function typeNotStopping(id, word){
+			currStr = document.getElementById(id).innerHTML;
+			if(currStr.length < word.length) {
+				document.getElementById(id).innerHTML = word.substring(0, currStr.length + 1);
+				setTimeout(typeNotStopping, 50 + Math.ceil(Math.random() * 16) - 8, id, word );
+			}
+			else{
+				setTimeout(untypeNotStopping, 238, id, word);
+			}
+		}
+
+		function untypeNotStopping(id, word){
+			currStr = document.getElementById(id).innerHTML;
+			if(currStr.length > 1){
+				document.getElementById(id).innerHTML = word.substring(0, currStr.length - 1);
+				setTimeout(untypeNotStopping, 75 + Math.ceil(Math.random() * 24) - 12, id, word);
+			}
+			else{
+				setTimeout(typeNotStopping, 50, id, words[Math.floor(Math.random() * words.length)]);
+			}
+		}
+		
         function upload(){
             text1 = $("#user").val();
             text2 = $("#email").val();
@@ -88,8 +115,11 @@ Estas palabras serán la base de la narración de la película que estamos entre
 			
 			document.cookie = "name="+text1;
 			document.cookie = "email="+text2;
+			$("#greyout").css("visibility","visible");
+			$("#uploading").css("visibility","visible");
+			typeNotStopping("divCargando", "subiendo...");
 			
-
+			
             $("#form").submit();
         }
         $(document).ready(() => {

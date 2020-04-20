@@ -31,9 +31,8 @@
         </div>
     </nav>
 <!--     <p id="rightZIndex">Vos:</p> -->
-    <!-- <p id="leftZIndex">Mundo:</p> --><div id="video"> <h4 class="card-title">graba tu ventana</h4>
-			<p>Podés grabar tu ventana, tu cotidianidad, hablar mientras registras contándonos la situación, hacer una entrevista o lo que quieras en tu experiencia en la cuarentena. <br><br>
-Podés hablar mientras grabas, este texto servirá mucho en el momento de la edición automática. <br><br>
+    <!-- <p id="leftZIndex">Mundo:</p> --><div id="video"> <h4 class="card-title">grabar</h4>
+			<p>Podés grabar tu ventana, tu cotidianidad, hablar mientras registras contándonos la situación, hacer una entrevista o lo que quieras en tu experiencia en la cuarentena. <br>
 Estas palabras serán la base de la narración de la película que estamos entre todes registrando. <br><br></p>
             <form action="/upload" method='POST' enctype="multipart/form-data" id="form">
 			 
@@ -72,6 +71,11 @@ Estas palabras serán la base de la narración de la película que estamos entre
             </div>
         </footer>
     </div>
+	
+	<div id="uploading" style="position:fixed; top:20%; left:20%; width:60%; height:60%; z-index:9; background: white; visibility: hidden;">
+		<p id="divCargando" style="font-size:3rem; top:50%; position:relative; text-align: center;"></p>
+	</div>
+	<div id="greyout" style="position:fixed; width:100%; height:100%; z-index:8; background:black; opacity:0.6; top:0;left:0;visibility: hidden;"></div>
 
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
