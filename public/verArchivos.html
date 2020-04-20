@@ -29,6 +29,17 @@
     </nav>
 <!--     <p id="rightZIndex">Vos:</p> -->
     <!-- <p id="leftZIndex">Mundo:</p> -->
+	<div style="text-align:center">
+	<div style="display:inline-block">
+		<label for="from">Desde:</label>
+		<input type="text" id="from" name="from">
+		<label for="to">Hasta:</label>
+		<input type="text" id="to" name="to">
+		<button onclick="sendDates()" class="btn btn-primary" type="button" style="background-color: rgb(0,0,0);margin-left: 5%;">Filtrar por fechas</button>
+	</div>
+	</div>
+	<br />
+	
     <div  id="videosContainer">
 		
 <!--
@@ -65,6 +76,8 @@
 
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	<script src="assets/css/jquery-ui.css"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script>
 		function getURLVars() {
 			var r = {};
@@ -76,28 +89,37 @@
 			var pairs = href.split('?');
 			pairs.shift();
 			
+			pairs = pairs[0].split('&');
+			
 			pairs.forEach((keyValue) =>{
 				r[decodeURIComponent(keyValue.split('=')[0])] = decodeURIComponent(keyValue.split('=')[1]);
 			});
-			
 			return r;
 		}
 		
 		var toInsert = "";
 		var counter = 0;
+		var startDate, endDate;
 		
 		$(document).ready(() => {
 			$.getJSON('/archivos', function(archivos){
 				var object = getURLVars();
+				
+				if(object.startDate && object.endDate){
+					startDate = Date.parse(object.startDate);
+					endDate = Date.parse(object.endDate);
+				}
 				
 				archivos.forEach((archivo) =>{
 					if(object.user){
 						if(archivo.user != object.user)
 							return;
 					}
-					if(object.date){
-						if(archivo.indexOf(object.date) == -1)
+					if(startDate && endDate){
+						date = Date.parse(archivo.timePublished);
+						if(date < startDate || date > endDate){
 							return;
+						}
 					}
 					if(archivo.videoURL == 'SIN URL')
 						return;
@@ -106,6 +128,51 @@
 				});
 			});
 		});
+		
+		var array = [];
+		$.getJSON('archivos', function(archivos){
+			archivos.forEach((archivo)=> {
+				array.push(archivo);
+			})
+		});
 	</script>
+		
+	<script>
+	function sendDates(){
+		startDate=$("#startDate").val();
+		endDate=$("#endDate").val();
+		window.location.href = window.location.hostname + "/verArchivos.html?startDate="+encodeURIComponent(startDate) + "&endDate="+encodeURIComponent(endDate)
+	}
+	
+	$(function() {
+		var dateFormat = "mm/dd/yy",
+		from = $( "#from" )
+		.datepicker({
+			defaultDate: "+1w",
+			changeMonth: true
+		})
+		.on( "change", function() {
+			to.datepicker( "option", "minDate", getDate( this ) );
+		}),
+		to = $( "#to" ).datepicker({
+			defaultDate: "+1w",
+			changeMonth: true
+		})
+		.on( "change", function() {
+			from.datepicker( "option", "maxDate", getDate( this ) );
+		});
+
+		function getDate( element ) {
+			var date;
+			try {
+				date = $.datepicker.parseDate( dateFormat, element.value );
+			} catch( error ) {
+				date = null;
+			}
+		return date;
+		}
+	} );
+	</script>
+	
 </body>
 </html>
