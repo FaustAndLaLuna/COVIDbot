@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Hind">
     <link rel="stylesheet" href="assets/css/Footer-Basic.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+	<link rel="stylesheet" href="assets/css/jquery-ui.css">
 </head>
 
 <body>
@@ -146,7 +147,7 @@
 	
 	$(function() {
 		var dateFormat = "mm/dd/yy",
-		from = $( "#from" )
+		from = $( "#startDate" )
 		.datepicker({
 			defaultDate: "+1w",
 			changeMonth: true
@@ -154,7 +155,7 @@
 		.on( "change", function() {
 			to.datepicker( "option", "minDate", getDate( this ) );
 		}),
-		to = $( "#to" ).datepicker({
+		to = $( "#endDate" ).datepicker({
 			defaultDate: "+1w",
 			changeMonth: true
 		})
