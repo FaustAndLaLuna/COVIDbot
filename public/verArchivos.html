@@ -77,7 +77,7 @@
 			pairs.shift();
 			
 			pairs.forEach((keyValue) =>{
-				r[keyValue.split('=')[0]] = keyValue.split('=')[1];
+				r[decodeURIComponent(keyValue.split('=')[0])] = decodeURIComponent(keyValue.split('=')[1]);
 			});
 			
 			return r;
