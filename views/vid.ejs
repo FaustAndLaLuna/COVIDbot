@@ -37,6 +37,7 @@
 		<video controls="true" type='video/mp4' src="<%= "/uploads"+ videoURL %>" preload="metadata" playsinline style="height:30vh; width:30vw; position:relative; margin-left:40vw; transform: translate(-50%, 0);">
     	</video>
 		<p style="position:relative; margin-left:40vw; transform: translate(-50%, 0); text-align:center;"> Autor: <%= author %> </p>
+		<a href="/verArchivos.html?user=<%= author%>">
 		<button class="btn btn-primary" type="button" style="background-color: rgb(0,0,0);position:relative; margin-left:40vw; transform: translate(-50%, 0)" id="btn-upload" onclick="contactar()">Contactar al Autor</button>
     <br />
 	</div>
