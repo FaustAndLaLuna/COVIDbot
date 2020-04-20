@@ -7,6 +7,14 @@ var formidable = require('formidable');
 var mkdirp = require('mkdirp');
 var videosRepo = require('../conn/videosRepo');
 
+var txt = `Hola,\n
+Muchas gracias por ser parte de cobot19.\n <br>
+Ya estamos en contacto, podes escribirnos a este email con cualquier inquietud que te responderemos personalmente.\n <br/>
+Nos gustaría que sigas compartiendo material con nosotros y pensando juntos cómo se narra esta experiencia. \n
+Esperamos que vos y tus seres queridos estén bien y que pronto podamos encontrarnos y celebrar la vida, hasta entonces, cyber abrazos \n
+- equipo cobot19
+`
+
 var vidTable = new videosRepo();
 
 var nodemailer = require('nodemailer');
@@ -67,7 +75,7 @@ router.post('/', function(req, res, next){
 						from: '2020cobot19@gmail.com',
 						to: fields.email,
 						subject: 'Video recibido !',
-						text: 'El video que nos enviaste fue subido con éxito! \n\r Gracias por ser parte de nuestro proyecto!'
+						text: txt
 					};
 					transporter.sendMail(mailOptions, function(error, info){
 						if (error) {

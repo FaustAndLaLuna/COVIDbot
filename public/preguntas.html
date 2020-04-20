@@ -31,12 +31,12 @@
 <!--     <p id="rightZIndex">Vos:</p> -->
     <!-- <p id="leftZIndex">Mundo:</p> -->
     <div>
-        <p style="font-size: 1.4rem;text-align: center;">¿Tienes alguna duda que quieras preguntarle a la comunidad?</p>
+        <p style="font-size: 1.4rem;text-align: center;"><span style="text-align:justify">Abajo hay algunas preguntas por las que hemos pasado.<br /> Si querés compartir con nosotros tus reflexiones y sentimientos sobre ellas sería muy útil para la edición.<br /> Estas palabras servirán para estructurar el relato.<br /><br /></span>¿Tienes alguna duda que quieras preguntarle a la comunidad?</p>
         <form id="ask" class="questions" action="/questions" method="post">
             <p class="pregunta" id="askq"> preguntar: </p>
             <input id="askQ" type="text" style="width:100%;" name="ask" placeholder="pregunta"></input> <br>
-            <input type="text" style="width:70%;" name='name' placeholder="nombre"></input>
-            <input type="text" style="width:70%;" name='email' placeholder="email"></input>
+            <input type="text" style="width:70%;" name='name' placeholder="nombre" style="display:none;"></input>
+            <input type="text" style="width:70%;" name='email' placeholder="email"  style="display:none;"></input>
             <br> 
             <button class="btn btn-primary" type="submit" style="background-color: rgb(0,0,0); margin: 7px 0 0 0px;" id="btn-upload1">preguntar</button>
         </form>
@@ -93,7 +93,22 @@
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script>
+	function getCookieObj(){
+		var cookie = {};
+		let cookieParts = document.cookie.split("; ");
+		cookieParts.forEach((part) => {
+			keyValue = part.split("=");
+			key = keyValue[0];
+			value = keyValue[1];
+			cookie[key] = value; 
+		});
+		return cookie;
+	}
+		
     $(document).ready(() => {
+		cookie = getCookieObj();
+		$("#name").val(cookie["user"]);
+		$("#email").val(cookie["email"]);
         $.getJSON('/questions', function(qs){
             for(i = 1; i < 4; i++){
                 $("#q"+i+"q").text(qs[i-1].question);
