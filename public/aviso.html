@@ -23,28 +23,27 @@
                     <li class="nav-item" role="presentation"><a class="nav-link" href="/verArchivos.html">archivos</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="/TEMP.html">comparaciones</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="/TEMP.html">edición</a></li>
-
                 </ul>
         </div>
         </div>
     </nav>
 <!--     <p id="rightZIndex">Vos:</p> -->
     <!-- <p id="leftZIndex">Mundo:</p> -->
-    <p id="coronavirus" style="font-size: 7vw; z-index:9;"><br></p>
+    <h2 style="text-align:justify; margin-left:21vw">Aviso de privacidad</h2>
+    <p id="coronavirus" style="text-align:justify"> Este sitio no comercializa, ni comercializará, ninguno de los datos que compartes. No usa cookies para fines comerciales, ni envía publicidad encubierta. Es enteramente sin fines de lucro. <br><br>
+Todos los materiales y datos que nos compartas (videos, audios, textos o tu localización) se usarán exclusivamente para este proyecto colectivo en la realización de documentales experimentales sobre la pandemia. <br><br> 
+Al utilizar el sitio, subiendo los materiales por tu propia voluntad, estás cediendo todos los derechos autorales de los materiales subidos, no pudiendo hacer ningún reclamo económico posterior sobre los mismos. <br><br>
+Estos materiales se utilizarán exclusivamente para los objetivos de este proyecto detallados en este sitio. Se contemplan posibles exhibiciones fuera de la red y otros medios. Cada proyección o exhibición de cobot19 mencionara siempre los nombre de todos los participantes. <br><br>
+		<br>
+		<b>En todas tus contribuciones se respetarán tus créditos. Además, si una persona al ver tu video quiere conectarse contigo, la plataforma te enviará un mensaje par que te contactes si te interesa, respetando siempre tu privacidad.</b>
+
+    </p>
     
     <div id="spacer"></div>
 
+    <a href="explanation.html" style="font-size: 1.4rem;text-align: center;position: relative;left: 30%;">regresar</a>
     
-    <div style="height:13vh;"> 
-<!--
-        <div style="left: 50%;position: relative;transform: translate(-87px,0); position:relative;">
-                <div style="position:relative; top: -8px;">
-                    <div class="fb-share-button" data-href="https://www.cobot19.com" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.cobot19.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a></div>
-                </div>
-                <a style="display:inline-block; vertical-align:top; position:relative;" href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Hola! Estoy participando en la creación de un documental comunal de la cuarentena. ¿Quieres participar?" data-url="https://www.cobot19.com" data-hashtags="cobot19" data-lang="en" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            </div>
--->
-    </div>
+
     <div class="footer-basic">
         <footer>
             <div style="left:50%; position:relative; transform: translate(-87px, 0);">
@@ -57,14 +56,10 @@
 
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/typing.js"></script>
     <script>
-    $(document).ready( () => {
-        setTimeout(() => {
-            window.location.href = "/explanation.html";
-        }, 20000);
-    })
-
+        $(document).ready(() => {
+                $("#spacer").height($(window).height() * 0.8 - $("#spacer").offset().top);
+            });
     </script>
 </body>
 

@@ -8,8 +8,8 @@ var mkdirp = require('mkdirp');
 var videosRepo = require('../conn/videosRepo');
 
 var txt = `Hola,\n
-Muchas gracias por ser parte de cobot19.\n <br>
-Ya estamos en contacto, podes escribirnos a este email con cualquier inquietud que te responderemos personalmente.\n <br/>
+Muchas gracias por ser parte de cobot19.\n
+Ya estamos en contacto, podes escribirnos a este email con cualquier inquietud que te responderemos personalmente.\n
 Nos gustaría que sigas compartiendo material con nosotros y pensando juntos cómo se narra esta experiencia. \n
 Esperamos que vos y tus seres queridos estén bien y que pronto podamos encontrarnos y celebrar la vida, hasta entonces, cyber abrazos \n
 - equipo cobot19
