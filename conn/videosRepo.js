@@ -133,9 +133,11 @@ class videosRepo{
 			POOL.getConnection(function(error, conn){
 				if(error) reject(error);
 				conn.query("SELECT user FROM videos WHERE videoURL = ?", [URL], function(err, result){
+					var r = null;
 					conn.release();
 					if(err) reject(err);
-					return resolve(result[0].user);
+					if(result[0]) r = result[0].user;
+					return resolve(r);
 				});
 			});
 		});
