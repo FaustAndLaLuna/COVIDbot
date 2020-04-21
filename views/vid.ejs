@@ -45,7 +45,7 @@
 		</div>
 		<div style="text-align:center">
 			<div style="display:inline-block">
-				<p> Autor: <%= "archivo no encontrado" ? !author : author %> </p>
+				<p> Autor: <%= !author? "archivo no encontrado" : author %> </p>
 			</div>
 		</div>
 		<div style="text-align:center">
