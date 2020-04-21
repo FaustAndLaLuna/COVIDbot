@@ -117,9 +117,9 @@ app.use(function(err, req, res, next) {
 
 
 https.createServer({
-	key:fs.readFileSync('/etc/letsencrypt/live/www.cobot19.com/privkey.pem'),
-	cert:fs.readFileSync('/etc/letsencrypt/live/www.cobot19.com/cert.pem'),
-	ca:fs.readFileSync('/etc/letsencrypt/live/www.cobot19.com/chain.pem')
+	key:fs.readFileSync('/etc/letsencrypt/live/cobot19.com/privkey.pem'),
+	cert:fs.readFileSync('/etc/letsencrypt/live/cobot19.com/cert.pem'),
+	ca:fs.readFileSync('/etc/letsencrypt/live/cobot19.com/chain.pem')
 },app).listen(443);
 
 module.exports = app;
