@@ -10,9 +10,10 @@ var videosRepo = require('../conn/videosRepo');
 var txt = `Hola,\n
 Muchas gracias por ser parte de cobot19.\n
 Ya estamos en contacto, podes escribirnos a este email con cualquier inquietud que te responderemos personalmente.\n
-Nos gustaría que sigas compartiendo material con nosotros y pensando juntos cómo se narra esta experiencia. \n
-Esperamos que vos y tus seres queridos estén bien y que pronto podamos encontrarnos y celebrar la vida, hasta entonces, cyber abrazos \n
-- equipo cobot19
+Nos gustaría que sigas compartiendo material y subiéndolo a la página, pensando juntos cómo se narra esta experiencia. \n
+Esperamos que vos y tus seres queridos estén bien y que pronto podamos encontrarnos y celebrar la vida,  \n 
+-hasta entonces, cyber abrazos \n
+equipo cobot19
 `
 
 var vidTable = new videosRepo();
