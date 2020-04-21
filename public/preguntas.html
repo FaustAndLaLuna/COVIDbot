@@ -15,11 +15,11 @@
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v6.0&appId=1423825864390626&autoLogAppEvents=1"></script>
     <nav class="navbar navbar-light navbar-expand-md">
-        <div class="container-fluid"><a class="navbar-brand" href="/" style="font-family: Hind, sans-serif;font-style: normal;">cobot19</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container-fluid"><a class="navbar-brand" href="/explanation.html" style="font-family: Hind, sans-serif;font-style: normal;">cobot19</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div
                 class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav">
-                    <li class="nav-item" role="presentation" id="desktopBrand"><a class="nav-link active" href="/">cobot19</a></li>
+                    <li class="nav-item" role="presentation" id="desktopBrand"><a class="nav-link active" href="/explanation.html">cobot19</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="/verArchivos.html">archivos</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="/comparaciones.html">comparaciones</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="/edicion.html">edición</a></li>
@@ -31,19 +31,8 @@
 <!--     <p id="rightZIndex">Vos:</p> -->
     <!-- <p id="leftZIndex">Mundo:</p> -->
     <div>
-        <p style="font-size: 1.4rem;text-align: center;"><span style="text-align:justify">Abajo hay algunas preguntas por las que hemos pasado.<br /> Si querés compartir con nosotros tus reflexiones y sentimientos sobre ellas sería muy útil para la edición.<br /> Estas palabras servirán para estructurar el relato.<br /><br /></span>¿Tienes alguna duda que quieras preguntarle a la comunidad?</p>
-        <form id="ask" class="questions" action="/questions" method="post">
-            <p class="pregunta" id="askq"> preguntar: </p>
-            <input id="askQ" type="text" style="width:100%;" name="ask" placeholder="pregunta"></input> <br>
-            <input type="text" style="width:70%;" name='name' placeholder="nombre" style="display:none;"></input>
-            <input type="text" style="width:70%;" name='email' placeholder="email"  style="display:none;"></input>
-            <br> 
-            <button class="btn btn-primary" type="submit" style="background-color: rgb(0,0,0); margin: 7px 0 0 0px;" id="btn-upload1">preguntar</button>
-        </form>
-        <p id="graciasAsk" class="graciasPreguntas" style=""> ¡Gracias! <br> La pregunta se ha hecho.</p>
-    </div>
-    <div>
-         <p style="font-size: 1.4rem;text-align: center;">¿Quieres responder alguna pregunta?</p>
+		<p style="font-size: 1rem;text-align: justify; margin: 0 12vw 0 12vw"><span style="font-size:1.4rem;">A</span>bajo hay algunas preguntas por las que hemos pasado.<br /> Si querés compartir con nosotros tus reflexiones y sentimientos sobre ellas sería muy útil para la edición.<br /> Estas palabras servirán para estructurar el relato.<br /><br /></p>
+         <p style="font-size: 1.2rem;text-align: center;">¿Querés responder alguna pregunta?</p>
         <form id="q1" class="questions" action="/questions" method="post">
             <p class="pregunta" id="q1q"> pregunta? </p>
             <input id="q1a" type="text" style="width:70%;" name="ans"></input>
@@ -70,11 +59,23 @@
         </form>
         <p id="graciasq3" class="graciasPreguntas" style=""> ¡Gracias! <br> Tu respuesta se ha guardado.</p>
     </div>
+	<div>
+		<p style="font-size: 1.4rem;text-align: center;">¿Tienes alguna duda que quieras preguntarle a la comunidad?</p>
+        <form id="ask" class="questions" action="/questions" method="post">
+            <p class="pregunta" id="askq"> preguntar: </p>
+            <input id="askQ" type="text" style="width:100%;" name="ask" placeholder="pregunta"></input> <br>
+            <input type="text" style="width:70%;" name='name' placeholder="nombre" style="display:none;visibility:hidden;" id="name"></input>
+            <input type="text" style="width:70%;" name='email' placeholder="email"  style="display:none;visibility:hidden;" id="email"></input>
+            <br> 
+            <button class="btn btn-primary" type="submit" style="background-color: rgb(0,0,0); margin: 7px 0 0 0px;" id="btn-upload1">preguntar</button>
+        </form>
+        <p id="graciasAsk" class="graciasPreguntas" style=""> ¡Gracias! <br> La pregunta se ha hecho.</p>
+    </div>
     <a href="explanation.html" style="font-size: 1.4rem;text-align: center;position: relative;left: 18vw;">regresar</a>
     
     <div style="height:13vh;"> 
-        <div style="left: 50%;position: relative;transform: translate(-87px,0); position:relative;">
-                <div style="position:relative; top: -8px;">
+        <div style="margin-left:18vw;">
+                <div style="position:relative">
                     <div class="fb-share-button" data-href="https://www.cobot19.com" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.cobot19.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a></div>
                 </div>
                 <a style="display:inline-block; vertical-align:top; position:relative;" href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Hola! Estoy participando en la creación de un documental comunal de la cuarentena. ¿Quieres participar?" data-url="https://www.cobot19.com" data-hashtags="cobot19" data-lang="en" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -109,6 +110,8 @@
 		cookie = getCookieObj();
 		$("#name").val(cookie["user"]);
 		$("#email").val(cookie["email"]);
+		$("#name").css("display","none");
+		$("#email").css("display","none");
         $.getJSON('/questions', function(qs){
             for(i = 1; i < 4; i++){
                 $("#q"+i+"q").text(qs[i-1].question);
