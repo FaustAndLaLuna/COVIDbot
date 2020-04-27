@@ -297,3 +297,11 @@ body {
 	grid-template-columns: auto auto auto;
 	column-gap: .33vw;
 }
+
+.museumCard {
+	width: 60%;
+	left: 20%;
+	position: relative;
+	box-shadow: 1rem 1rem 1rem grey;
+	text-align: justify;
+}
