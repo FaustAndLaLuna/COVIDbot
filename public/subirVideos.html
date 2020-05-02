@@ -142,6 +142,7 @@ Estas palabras serán la base de la narración de la película que estamos entre
 			document.cookie = "email="+text2;
 			
 			$.post('/upload', $('#form').serialize());
+			$("#form").css("display", "none");
         }
 		 function upload1(){
             $("user1").val($("user").val());
@@ -150,6 +151,7 @@ Estas palabras serán la base de la narración de la película que estamos entre
 			
 			
 			$.post('/upload', $('#form1').serialize());
+			$("#form1").css("display", "none");
         }
 		 function upload2(){
             $("user2").val($("user").val());
@@ -158,6 +160,7 @@ Estas palabras serán la base de la narración de la película que estamos entre
 			
 			
 			$.post('/upload', $('#form2').serialize());
+			$("#form2").css("display", "none");
         }
 		 function upload3(){
             $("user3").val($("user").val());
@@ -166,6 +169,7 @@ Estas palabras serán la base de la narración de la película que estamos entre
 			
 			
 			$.post('/upload', $('#form3').serialize());
+			$("#form3").css("display", "none");
         }
 		 function upload4(){
             $("user4").val($("user").val());
@@ -174,6 +178,7 @@ Estas palabras serán la base de la narración de la película que estamos entre
 			
 			
 			$.post('/upload', $('#form4').serialize());
+			$("#form4").css("display", "none");
         }
 		
 		
