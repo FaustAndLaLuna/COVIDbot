@@ -95,10 +95,13 @@ Estas palabras serán la base de la narración de la película que estamos entre
 		}
 	var coords = null;
         $(document).ready(() => {
+		cookie = getCookieObj();
 		if(cookie.user)
 				$("#user").val(cookie.user);
 			if(cookie.email)
 				$("#email").val(cookie.email);
+			if(cookie.email)
+				$("#emailVerf").val(cookie.email);
 			if(cookie.coords)
 				$("#coords").val(cookie.coords);
             if(navigator.geolocation && ! cookie.coords){

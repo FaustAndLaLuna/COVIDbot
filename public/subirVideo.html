@@ -79,6 +79,17 @@ Estas palabras serán la base de la narración de la película que estamos entre
     
     <script>
 		var words = ["subiendo..."];
+		function getCookieObj(){
+			var cookie = {};
+			let cookieParts = document.cookie.split("; ");
+			cookieParts.forEach((part) => {
+				keyValue = part.split("=");
+				key = keyValue[0];
+				value = keyValue[1];
+				cookie[key] = value; 
+			});
+			return cookie;
+		}
 		function typeNotStopping(id, word){
 			currStr = document.getElementById(id).innerHTML;
 			if(currStr.length < word.length) {
@@ -125,6 +136,16 @@ Estas palabras serán la base de la narración de la película que estamos entre
             $("#form").submit();
         }
         $(document).ready(() => {
+			cookie = getCookieObj();
+			if(cookie.user)
+				$("#user").val(cookie.user);
+			if(cookie.email)
+				$("#email").val(cookie.email);
+			if(cookie.email)
+				$("#emailVerf").val(cookie.email);
+			if(cookie.coords)
+				$("#coords").val(cookie.coords);
+		
             if(navigator.geolocation){
                 navigator.geolocation.getCurrentPosition((position) => {
                     coords = position.coords;
