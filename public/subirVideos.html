@@ -35,7 +35,7 @@
     <!-- <p id="leftZIndex">Mundo:</p> --><div id="video"> <h4 class="card-title">sube un video</h4>
             <p style="margin-left: 7%;margin-right: 7%;">Seleccionar video para subir, luego llenar la información y presionar "subir". Cada video se sube por separado. <br> <br> ESTA FUNCION NO TIENE INDICADOR DE PROGRESION DE SUBIDA. <br> ESPERAR CINCO MINUTOS POR VIDEO.</p>
 			
-    <form style="background-color: rgb(228,228,228); padding: 3vh 3vw 3vh 3vw" action="/upload" method="POST" enctype="multipart/form-data" id="form">
+    <form style="background-color: rgb(228,228,228); padding: 3vh 3vw 3vh 3vw" action="/upload" method="POST" enctype="multipart/form-data" id="form" target="_blank">
         <p>Podes grabar tu ventana, tu cotidianidad, hablar mientras registras contándonos la situación, hacer una entrevista o lo que quieras en tu experiencia en la cuarentena. 
 Estas palabras serán la base de la narración de la película que estamos entre todes registrando. <br><br>
 </p>
@@ -47,7 +47,7 @@ Estas palabras serán la base de la narración de la película que estamos entre
         <button id="toSubmit" class="btn btn-primary" type="button" style="background-color: rgb(0,0,0);margin-left: 5%;">Subir</button>
         <p>&nbsp;&nbsp;</p>
     </form>
-	<form style="background-color: rgb(228,228,228); padding: 3vh 3vw 3vh 3vw" action="/upload" method="POST" enctype="multipart/form-data" id="form1">
+	<form style="background-color: rgb(228,228,228); padding: 3vh 3vw 3vh 3vw" action="/upload" method="POST" enctype="multipart/form-data" id="form1" target="_blank">
 		 <input class="text" name="user" id="user1" value="" placeholder="nombre" style="display:none;">
         <input class="text" name="email" id="email1" value="" placeholder="email" style="display:none;">
         <input class="text" name="emailVerif" id="emailVerif1" value="" placeholder="verificar email" style="display:none;"><br />
@@ -55,7 +55,7 @@ Estas palabras serán la base de la narración de la película que estamos entre
         <div class="form-group"><input type="file" style="margin-left: 5%;" name="video"></div>
         <button id="toSubmit1" class="btn btn-primary" type="button" style="background-color: rgb(0,0,0);margin-left: 5%;">Subir</button>
         <p>&nbsp;&nbsp;</p>
-    </form><form style="background-color: rgb(228,228,228); padding: 3vh 3vw 3vh 3vw" action="/upload" method="POST" enctype="multipart/form-data" id="form1">
+    </form><form style="background-color: rgb(228,228,228); padding: 3vh 3vw 3vh 3vw" action="/upload" method="POST" enctype="multipart/form-data" id="form2" target="_blank">
 		<input class="text" name="user" id="user2" value="" placeholder="nombre" style="display:none;">
         <input class="text" name="email" id="email2" value="" placeholder="email" style="display:none;">
         <input class="text" name="emailVerif" id="emailVerif2" value="" placeholder="verificar email" style="display:none;"><br />
@@ -63,7 +63,7 @@ Estas palabras serán la base de la narración de la película que estamos entre
         <div class="form-group"><input type="file" style="margin-left: 5%;" name="video"></div>
         <button id="toSubmit2" class="btn btn-primary" type="button" style="background-color: rgb(0,0,0);margin-left: 5%;">Subir</button>
         <p>&nbsp;&nbsp;</p>
-    </form><form style="background-color: rgb(228,228,228); padding: 3vh 3vw 3vh 3vw" action="/upload" method="POST" enctype="multipart/form-data" id="form3">
+    </form><form style="background-color: rgb(228,228,228); padding: 3vh 3vw 3vh 3vw" action="/upload" method="POST" enctype="multipart/form-data" id="form3" target="_blank">
 		<input class="text" name="user" id="user3" value="" placeholder="nombre" style="display:none;">
         <input class="text" name="email" id="email3" value="" placeholder="email" style="display:none;">
         <input class="text" name="emailVerif" id="emailVerif3" value="" placeholder="verificar email" style="display:none;"><br />
@@ -71,7 +71,7 @@ Estas palabras serán la base de la narración de la película que estamos entre
         <div class="form-group"><input type="file" style="margin-left: 5%;" name="video"></div>
         <button id="toSubmit3" class="btn btn-primary" type="button" style="background-color: rgb(0,0,0);margin-left: 5%;">Subir</button>
         <p>&nbsp;&nbsp;</p>
-    </form><form style="background-color: rgb(228,228,228); padding: 3vh 3vw 3vh 3vw" action="/upload" method="POST" enctype="multipart/form-data" id="form4">
+    </form><form style="background-color: rgb(228,228,228); padding: 3vh 3vw 3vh 3vw" action="/upload" method="POST" enctype="multipart/form-data" id="form4" target="_blank">
 		<input class="text" name="user" id="user4" value="" placeholder="nombre" style="display:none;">
         <input class="text" name="email" id="email4" value="" placeholder="email" style="display:none;">
         <input class="text" name="emailVerif" id="emailVerif4" value="" placeholder="verificar email" style="display:none;"><br />
@@ -141,7 +141,7 @@ Estas palabras serán la base de la narración de la película que estamos entre
 			document.cookie = "name="+text1;
 			document.cookie = "email="+text2;
 			
-			$.post('/upload', $('#form').serialize());
+			$("#form").submit();
 			$("#form").css("display", "none");
         }
 		 function upload1(){
@@ -150,7 +150,7 @@ Estas palabras serán la base de la narración de la película que estamos entre
 			$("coords1").val($("coords").val());
 			
 			
-			$.post('/upload', $('#form1').serialize());
+			$("#form1").submit();
 			$("#form1").css("display", "none");
         }
 		 function upload2(){
@@ -159,7 +159,7 @@ Estas palabras serán la base de la narración de la película que estamos entre
 			$("coords2").val($("coords").val());
 			
 			
-			$.post('/upload', $('#form2').serialize());
+			$("#form2").submit();
 			$("#form2").css("display", "none");
         }
 		 function upload3(){
@@ -168,7 +168,7 @@ Estas palabras serán la base de la narración de la película que estamos entre
 			$("coords3").val($("coords").val());
 			
 			
-			$.post('/upload', $('#form3').serialize());
+			$("#form3").submit();
 			$("#form3").css("display", "none");
         }
 		 function upload4(){
@@ -177,7 +177,7 @@ Estas palabras serán la base de la narración de la película que estamos entre
 			$("coords4").val($("coords").val());
 			
 			
-			$.post('/upload', $('#form4').serialize());
+			$("#form4").submit();
 			$("#form4").css("display", "none");
         }
 		
