@@ -141,7 +141,15 @@ Estas palabras serán la base de la narración de la película que estamos entre
 			document.cookie = "name="+text1;
 			document.cookie = "email="+text2;
 			
-			$.post('/upload', $('#form').serialize());
+			$.ajax({
+				type: "POST",
+				url: "/upload",
+				data: $("#form").serialize(), // serializes the form's elements.
+				success: function(data){alert("Se ha subido el primer video.");} // show response from the php script.}
+			});
+
+
+			});
 			$("#form").css("display", "none");
         }
 		 function upload1(){
@@ -150,7 +158,12 @@ Estas palabras serán la base de la narración de la película que estamos entre
 			$("#coords1").val($("#coords").val());
 			
 			
-			$.post('/upload', $('#form1').serialize());
+			$.ajax({
+				type: "POST",
+				url: "/upload",
+				data: $("#form1").serialize(), // serializes the form's elements.
+				success: function(data){alert("Se ha subido el segundo video.");} // show response from the php script.}
+			});
 			$("#form1").css("display", "none");
         }
 		 function upload2(){
@@ -159,7 +172,12 @@ Estas palabras serán la base de la narración de la película que estamos entre
 			$("#coords2").val($("#coords").val());
 			
 			
-			$.post('/upload', $('#form2').serialize());
+			$.ajax({
+				type: "POST",
+				url: "/upload",
+				data: $("#form2").serialize(), // serializes the form's elements.
+				success: function(data){alert("Se ha subido el tercer video.");} // show response from the php script.}
+			});
 			$("#form2").css("display", "none");
         }
 		 function upload3(){
@@ -168,7 +186,12 @@ Estas palabras serán la base de la narración de la película que estamos entre
 			$("#coords3").val($("#coords").val());
 			
 			
-			$.post('/upload', $('#form3').serialize());
+			$.ajax({
+				type: "POST",
+				url: "/upload",
+				data: $("#form3").serialize(), // serializes the form's elements.
+				success: function(data){alert("Se ha subido el cuarto video.");} // show response from the php script.}
+			});
 			$("#form3").css("display", "none");
         }
 		 function upload4(){
@@ -177,7 +200,12 @@ Estas palabras serán la base de la narración de la película que estamos entre
 			$("#coords4").val($("#coords").val());
 			
 			
-			$.post('/upload', $('#form4').serialize());
+			$.ajax({
+				type: "POST",
+				url: "/upload",
+				data: $("#form4").serialize(), // serializes the form's elements.
+				success: function(data){alert("Se ha subido el quinto video.");} // show response from the php script.}
+			});
 			$("#form4").css("display", "none");
         }
 		
