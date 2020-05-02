@@ -94,10 +94,9 @@ function upload() {
     document.getElementById('btn-stop-recording').disabled = true;
 	document.cookie = "user="+$("#user").val();
 	document.cookie = "email="+$("#email").val();
-
-
-
-    document.cookie = "name="+text1+"; email="+text2+"; coords="+changedCoords+"; Max-Age="+(60*60*24*365*4)+"; path='/'";
+	
+	if(coords)
+		document.cookie = "coords="+JSON.stringify(coords);
     
     var csrftoken = getCookie('csrftoken');
     var blob = recorder.getBlob();

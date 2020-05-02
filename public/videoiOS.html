@@ -22,7 +22,9 @@
                 class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav">
                     <li class="nav-item" role="presentation" id="desktopBrand"><a class="nav-link active" href="/explanation.html">cobot19</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="/verArchivos.html">archivos</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/verArchivos.html">ver videos</a></li>
+					<li class="nav-item" role="presentation"><a class="nav-link" href="/videos">grabar video</a></li>
+					<li class="nav-item" role="presentation"><a class="nav-link" href="/subirVideo.html">subir video</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="/comparaciones.html">comparaciones</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="/edicion.html">edición</a></li>
                 </ul>
@@ -77,6 +79,17 @@ Estas palabras serán la base de la narración de la película que estamos entre
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script>var words = ["subiendo..."];
+	function getCookieObj(){
+			var cookie = {};
+			let cookieParts = document.cookie.split("; ");
+			cookieParts.forEach((part) => {
+				keyValue = part.split("=");
+				key = keyValue[0];
+				value = keyValue[1];
+				cookie[key] = value; 
+			});
+			return cookie;
+		}
 		function typeNotStopping(id, word){
 			currStr = document.getElementById(id).innerHTML;
 			if(currStr.length < word.length) {
@@ -115,6 +128,10 @@ Estas palabras serán la base de la narración de la película que estamos entre
 			
 			document.cookie = "name="+text1;
 			document.cookie = "email="+text2;
+			
+			if($("#coords").val())
+				document.cookie = "coords="+JSON.stringify($("#coords").val());
+			
 			$("#greyout").css("visibility","visible");
 			$("#uploading").css("visibility","visible");
 			typeNotStopping("divCargando", "subiendo...");
@@ -123,7 +140,15 @@ Estas palabras serán la base de la narración de la película que estamos entre
             $("#form").submit();
         }
         $(document).ready(() => {
-            if(navigator.geolocation){
+			cookie = getCookieObj();
+			if(cookie.user)
+				$("#user").val(cookie.user);
+			if(cookie.email)
+				$("#email").val(cookie.email);
+			if(cookie.coords)
+				$("#coords").val(cookie.coords);
+			
+            if(navigator.geolocation && ! cookie.coords){
                 navigator.geolocation.getCurrentPosition((position) => {
                     coords = position.coords;
                     changedCoords = {longitude: coords.longitude, latitude: coords.latitude};
