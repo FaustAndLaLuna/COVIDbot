@@ -36,11 +36,10 @@
     <!-- <p id="leftZIndex">Mundo:</p> --><div id="video"> <h4 class="card-title">grabar</h4>
 			<p>Podés grabar tu ventana, tu cotidianidad, hablar mientras registras contándonos la situación, hacer una entrevista o lo que quieras en tu experiencia en la cuarentena. <br>
 Estas palabras serán la base de la narración de la película que estamos entre todes registrando. <br><br></p>
-            <form action="/upload" method='POST' enctype="multipart/form-data" id="form">
-			 
-    <video controls autoplay playsinline></video>
-				<p class="card-text">Para subir un video, dar click en Grabar, luego cuando estés satisfecho, debes dar click a Parar grabación.<br>Si estás satisfecho con tu video, puedes dar click en Subir. Si no lo estás, puedes volver a grabar dando click en Grabar.<br><br></p>
-            <input class="text" name="user" id="user" value="" style="" placeholder="nombre"><br />
+            <form action="/upload" method='POST' enctype="multipart/form-data" id="form" style="background-color: rgb(228,228,228);>
+			<p class="card-text">Para subir un video, dar click en Grabar, luego cuando estés satisfecho, debes dar click a Parar grabación.<br>Si estás satisfecho con tu video, puedes dar click en Subir. Si no lo estás, puedes volver a grabar dando click en Grabar.<br><br></p>
+            <video controls autoplay playsinline style="display:none;" id="videoWindow"></video><br>
+			<input class="text" name="user" id="user" value="" style="" placeholder="nombre"><br />
             <input class="text" name="email" id="email" value="" placeholder="email"><br />
             <input class="text" name="emailVerif" id="emailVerif" value="" placeholder="verificar email"><br />
             <input class="hidden" name="coords" id="coords" value='"{"longitude":9999,"latitude":9999}"' style="display:none;">

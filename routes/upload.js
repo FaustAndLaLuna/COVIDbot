@@ -102,7 +102,7 @@ router.post('/', function(req, res, next){
 					}
 
 
-					res.redirect( "/gracias.html");
+					res.redirect( "/preguntas.html");
 					res.end();
 					console.log(files);
 					console.log(fields);

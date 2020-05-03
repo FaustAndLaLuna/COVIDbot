@@ -259,13 +259,24 @@ body {
 }
 @media (min-width: 768px) {
   #video {
-    padding: 4rem 8rem;
+    padding: 4vh 20vw 0 20vw;
   }
 }
 
 @media (max-width: 767px) {
   #video {
-    padding: 0rem 2rem;
+    padding: 4vh 7vw 2vh 7vw;
+  }
+}
+@media (min-width: 768px) {
+  #videoAlt {
+    padding: 4vh 17vw 0 17vw;
+  }
+}
+
+@media (max-width: 767px) {
+  #videoAlt {
+    padding: 4vh 4vw 2vh 4vw;
   }
 }
 

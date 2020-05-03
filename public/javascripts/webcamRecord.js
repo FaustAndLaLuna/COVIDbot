@@ -131,7 +131,7 @@ function upload() {
         }
     };
     xhr.send(formData);
-    window.location.href = "/gracias.html";
+    window.location.href = "/preguntas.html";
 };
 
 function captureCamera(callback) {
@@ -152,6 +152,7 @@ function stopRecordingCallback() {
 
 //SETTER for HTML
 function startRec() {
+	$("#videoWindow").css("display", "block");
     if(recorder !== null){
         recorder.camera.stop();
         recorder.destroy();
