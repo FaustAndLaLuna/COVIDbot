@@ -33,9 +33,9 @@
 <!--     <p id="rightZIndex">Vos:</p> -->
     <!-- <p id="leftZIndex">Mundo:</p> -->
     <div>
-		<p class="coronavirus" ><span style="font-size:1.4rem;">A</span>bajo hay algunas preguntas por las que hemos pasado.<br /> Si querés compartir con nosotros tus reflexiones y sentimientos sobre ellas sería muy útil para la edición.<br /> Estas palabras servirán para estructurar el relato.<br /><br /></p>
-         <p style="font-size: 1.2rem;text-align: center;">¿Querés responder alguna pregunta?</p>
-        <form id="q1" class="questions" action="/questions" method="post">
+		<p class="coronavirus lessMargin" ><span style="font-size:1.4rem;">A</span>bajo hay algunas preguntas por las que hemos pasado.<br /> Si querés compartir con nosotros tus reflexiones y sentimientos sobre ellas sería muy útil para la edición.<br /> Estas palabras servirán para estructurar el relato.<br /><br /></p>
+        <p class="coronavirus" style="font-size: 1.2rem;">¿Querés responder alguna pregunta?</p>
+        <form id="q1" class="coronavirus" action="/questions" method="post">
             <p class="pregunta" id="q1q"> pregunta? </p>
             <input id="q1a" type="text" style="width:70%;" name="ans"></input>
             <input id="q1id" type="hidden" style="width:70%;display:none;" name="qId"></input>
@@ -44,7 +44,7 @@
         <p id="graciasq1" class="graciasPreguntas" style=""> ¡Gracias! <br> Tu respuesta se ha guardado.</p>
     </div>
     <div>
-        <form id="q2" class="questions" action="/questions" method="post">
+        <form id="q2" class="coronavirus" action="/questions" method="post">
             <p class="pregunta" id="q2q"> pregunta? </p>
             <input id="q2a" type="text" style="width:70%;" name="ans"></input>
             <input id="q2id" type="hidden" style="width:70%;display:none;" name="qId"></input>
@@ -53,7 +53,7 @@
         <p id="graciasq2" class="graciasPreguntas" style=""> ¡Gracias! <br> Tu respuesta se ha guardado.</p>
     </div>
     <div>
-        <form id="q3" class="questions" action="/questions" method="post">
+        <form id="q3" class="coronavirus" action="/questions" method="post">
             <p class="pregunta" id="q3q"> pregunta? </p>
             <input id="q3a" type="text" style="width:70%;" name="ans"></input>
             <input id="q3id" type="hidden" style="width:70%;display:none;" name="qId"></input>
@@ -62,8 +62,8 @@
         <p id="graciasq3" class="graciasPreguntas" style=""> ¡Gracias! <br> Tu respuesta se ha guardado.</p>
     </div>
 	<div>
-		<p style="font-size: 1.4rem;text-align: center;">¿Tienes alguna duda que quieras preguntarle a la comunidad?</p>
-        <form id="ask" class="questions" action="/questions" method="post">
+		<p class="coronavirus" style="font-size: 1.4rem;">¿Tienes alguna duda que quieras preguntarle a la comunidad?</p>
+        <form id="ask" class="coronavirus" action="/questions" method="post">
             <p class="pregunta" id="askq"> preguntar: </p>
             <input id="askQ" type="text" style="width:100%;" name="ask" placeholder="pregunta"></input> <br>
             <input type="text" style="width:70%;" name='name' placeholder="nombre" style="display:none;visibility:hidden;" id="name"></input>

@@ -246,6 +246,17 @@ body {
     text-align: justify;
     z-index: 2;
   }
+	h2 {
+    line-height: 1.4 rem;
+    position: relative;
+    padding-top: 4vh;
+    padding-right: 20vw;
+    padding-left: 20vw;
+    text-align: justify;
+  }
+	.lessMargin {
+		margin-top:-20vh;
+	}
 }
 @media (max-width: 767px){
   .coronavirus {
@@ -253,6 +264,13 @@ body {
     position: relative;
     padding: 4vh 7vw 2vh 7vw;
     font-size: 1rem;
+    text-align: justify;
+    z-index: 2;
+  }
+   h2 {
+    line-height: 2rem;
+    position: relative;
+    padding: 4vh 7vw 2vh 7vw;
     text-align: justify;
     z-index: 2;
   }
