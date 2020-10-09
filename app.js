@@ -38,7 +38,6 @@ app.set('view engine', 'ejs');
 app.enable("trust proxy");
 app.use(function(req, res, next){
 		if (!req.secure) {
-			console.log("Wat");
 			return res.redirect('https://' + req.get('host') + req.url);
 		}
 		next();
@@ -115,6 +114,11 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+var http = express();
+http.get('*', function(req, res) {
+	return res.redirect('https://' + req.get('host') + req.url);
+});
+http.listen(80);
 
 
 https.createServer({
