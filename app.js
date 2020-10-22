@@ -27,7 +27,7 @@ var session 			= require('express-session');
 var cookieParser 		= require('cookie-parser');
 
 var app = express();
-
+express.mime.type['mem'] = "text/html"
 require('./middleware/passport.js')(passport);
 //IMPORTANT LINE;
 
