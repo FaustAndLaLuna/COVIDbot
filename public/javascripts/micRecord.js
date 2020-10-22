@@ -15,9 +15,6 @@ var recordButton = document.getElementById("recordButton");
 var stopButton = document.getElementById("stopButton");
 var audioBlob;
 
-recordButton.addEventListener("click", startRecording);
-stopButton.addEventListener("click", stopRecording);
-
 $(document).ready(() => {
     cookie = getCookieObj();
     if(cookie.user)
