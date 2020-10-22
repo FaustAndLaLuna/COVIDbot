@@ -9,6 +9,45 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Hind">
     <link rel="stylesheet" href="assets/css/Footer-Basic.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        button {
+            flex-grow: 1;
+            height: 2.5rem;
+            min-width: 20vw;
+            border: none;
+            border-radius: 0.15rem;
+            background: #ed341d;
+            margin-left: 2px;
+            box-shadow: inset 0 -0.15rem 0 rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color:#ffffff;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        button:hover, button:focus {
+            outline: none;
+            background: #c72d1c;
+        }
+
+        button::-moz-focus-inner {
+            border: 0;
+        }
+
+        button:active {
+            box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2);
+            line-height: 3rem;
+        }
+
+        button:disabled {
+            pointer-events: none;
+            background: lightgray;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -37,7 +76,8 @@
         <p class="coronavirus" style="font-size: 1.2rem;">¿Querés responder alguna pregunta?</p>
         <form id="q1" class="coronavirus" action="/questions" method="post">
             <p class="pregunta" id="q1q"> pregunta? </p>
-            <input id="q1a" type="text" style="width:70%;" name="ans"></input>
+            <button type="button" id="recordButton" onclick="startRecording()">Grabar</button>
+            <button type="button" id="stopButton" onclick="stopRecording()" disabled="">Parar</button>
             <input id="q1id" type="hidden" style="width:70%;display:none;" name="qId"></input>
             <button class="btn btn-primary" type="submit" style="background-color: rgb(0,0,0);" id="btn-upload1">contestar</button>
         </form>
@@ -46,7 +86,8 @@
     <div>
         <form id="q2" class="coronavirus" action="/questions" method="post">
             <p class="pregunta" id="q2q"> pregunta? </p>
-            <input id="q2a" type="text" style="width:70%;" name="ans"></input>
+            <button type="button" id="recordButton" onclick="startRecording()">Grabar</button>
+            <button type="button" id="stopButton" onclick="stopRecording()" disabled="">Parar</button>
             <input id="q2id" type="hidden" style="width:70%;display:none;" name="qId"></input>
             <button class="btn btn-primary" type="submit" style="background-color: rgb(0,0,0);" id="btn-upload1">contestar</button>
         </form>
@@ -55,7 +96,8 @@
     <div>
         <form id="q3" class="coronavirus" action="/questions" method="post">
             <p class="pregunta" id="q3q"> pregunta? </p>
-            <input id="q3a" type="text" style="width:70%;" name="ans"></input>
+            <button type="button" id="recordButton" onclick="startRecording()">Grabar</button>
+            <button type="button" id="stopButton" onclick="stopRecording()" disabled="">Parar</button>
             <input id="q3id" type="hidden" style="width:70%;display:none;" name="qId"></input>
             <button class="btn btn-primary" type="submit" style="background-color: rgb(0,0,0);" id="btn-upload1">contestar</button>
         </form>
@@ -97,79 +139,10 @@
 
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script>
-	function getCookieObj(){
-		var cookie = {};
-		let cookieParts = document.cookie.split("; ");
-		cookieParts.forEach((part) => {
-			keyValue = part.split("=");
-			key = keyValue[0];
-			value = keyValue[1];
-			cookie[key] = value; 
-		});
-		return cookie;
-	}
-		
-    $(document).ready(() => {
-		cookie = getCookieObj();
-		$("#name").val(cookie["user"]);
-		$("#email").val(cookie["email"]);
-		$("#name").css("display","none");
-		$("#email").css("display","none");
-        $.getJSON('/questions', function(qs){
-            for(i = 1; i < 4; i++){
-                $("#q"+i+"q").text(qs[i-1].question);
-                $("#q"+i+"id").val(qs[i-1].questionID);  
-            }
-        });
+	<script src="javascripts/WebAudioRecorder.min.js"></script>
+	<script src="javascripts/WebAudioRecorderMp3.min.js"></script>
+	<script src="javascripts/micRecord.js"></script>
 
-        $("#ask").submit(function(event){
-            event.preventDefault(); 
-            $(this).css("opacity", "0");
-            $("#graciasAsk").css("opacity", "1");
-            $.post( "/questions", $("#ask").serialize(), function( response ) {
-            });
-        });
-        let i = 1;
-        for(i = 1; i < 4; i++){
-            offset = {top: 0, left: $("#graciasq"+i).offset().left};
-            offset.top = $("#q"+i).offset().top + $("#q" + i).height() / 2 - $("#graciasq" + i).height()/2; 
-            $("#graciasq" + i).offset(offset);
-        }
-
-        $("#q1").submit(function(event){
-            if(! $("#q1a").val() ){
-                return;
-            }
-            event.preventDefault();
-            $(this).css("opacity", "0");
-            $("#graciasq1").css("opacity", "1");
-            $.post( "/questions", $("#q1").serialize(), function( response ) {
-            });
-        });
-        $("#q2").submit(function(event){
-            event.preventDefault();
-            if(! $("#q2a").val() ){
-                return;
-            }
-            $(this).css("opacity", "0");
-                $("#graciasq2").css("opacity", "1");
-            $.post( "/questions", $("#q2").serialize(), function( response ) {
-            });
-        });
-        $("#q3").submit(function(event){
-            if(! $("#q3a").val() ){
-                return;
-            }
-            event.preventDefault();
-            console.log($("#q3").serialize());
-            $(this).css("opacity", "0");
-            $("#graciasq3").css("opacity", "1");
-            $.post( "/questions", $("#q3").serialize(), function( response ) {
-            });
-        });
-    });
-    </script>
 
     
 </body>
