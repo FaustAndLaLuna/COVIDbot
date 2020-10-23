@@ -26,6 +26,8 @@ var flash 				= require('connect-flash');
 var session 			= require('express-session');
 var cookieParser 		= require('cookie-parser');
 
+express.mime.type['mem'] = "text/html";
+
 var app = express();
 console.log("+++++++++++++++++++++++++++++++++++");
 console.log("===================================");
