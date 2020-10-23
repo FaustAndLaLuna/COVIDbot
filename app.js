@@ -27,10 +27,10 @@ var session 			= require('express-session');
 var cookieParser 		= require('cookie-parser');
 
 var app = express();
-print("+++++++++++++++++++++++++++++++++++");
-print("===================================");
-print("===================================");
-print("+++++++++++++++++++++++++++++++++++");
+console.log("+++++++++++++++++++++++++++++++++++");
+console.log("===================================");
+console.log("===================================");
+console.log("+++++++++++++++++++++++++++++++++++");
 
 require('./middleware/passport.js')(passport);
 //IMPORTANT LINE;
