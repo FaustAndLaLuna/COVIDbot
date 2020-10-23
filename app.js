@@ -25,8 +25,9 @@ var passport 			= require('passport');
 var flash 				= require('connect-flash');
 var session 			= require('express-session');
 var cookieParser 		= require('cookie-parser');
+const { connect } = require('http2');
 
-express.mime.type['mem'] = "text/html";
+connect.static.mime.define({'text/html':['mem']});
 
 var app = express();
 console.log("+++++++++++++++++++++++++++++++++++");
