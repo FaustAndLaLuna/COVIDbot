@@ -122,8 +122,8 @@ function stopRecording() {
 	recorder.finishRecording();
 }
 
-function createDownloadLink(el, blob,encoding) {
-	var url = URL.createObjectURL(blob);
+function createDownloadLink(blob,encoding) {
+	var url = URL.createObjectURL(audioBlob);
 	var au = document.createElement('audio');
 	var li = document.createElement('li');
 	var link = document.createElement('a');
