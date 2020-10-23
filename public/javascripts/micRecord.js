@@ -132,10 +132,10 @@ function createDownloadLink(blob,encoding) {
 	link.href = url;
     li.innerHTML = "";
 	li.appendChild(au);
-	li.appendChild(link);
+    li.appendChild(link);
+    $("#recordingsList").html("");
+    $("#recordingsList").append(li);
 
-	recordingsList.innerHTML = "";
-	recordingsList.appendChild(li);
 }
 
 var words = ["subiendo..."];
