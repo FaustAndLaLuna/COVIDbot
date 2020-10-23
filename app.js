@@ -25,15 +25,9 @@ var passport 			= require('passport');
 var flash 				= require('connect-flash');
 var session 			= require('express-session');
 var cookieParser 		= require('cookie-parser');
-express.mime.type['mem'] = "text/html";
+
 var app = express();
-print("==================================================");
-print("==================================================");
-print("==================================================");
-print("==================================================");
-print("==================================================");
-print("==================================================");
-//express.static.mime.define({'text/html':['mem']});
+
 require('./middleware/passport.js')(passport);
 //IMPORTANT LINE;
 
