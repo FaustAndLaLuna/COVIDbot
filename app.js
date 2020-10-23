@@ -27,7 +27,7 @@ var session 			= require('express-session');
 var cookieParser 		= require('cookie-parser');
 const { connect } = require('http2');
 
-connect.static.mime.define({'text/html':['mem']});
+express.static.mime.define({'text/html':['mem']});
 
 var app = express();
 console.log("+++++++++++++++++++++++++++++++++++");
