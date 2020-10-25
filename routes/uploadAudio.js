@@ -5,7 +5,7 @@ var uuidv4 = require('uuid/v4');
 var fs = require('fs');
 var formidable = require('formidable');
 var mkdirp = require('mkdirp');
-var videosRepo = require('../conn/audiosRepo');
+var videosRepo = require('../conn/videosRepo');
 
 var txt = `Hola,\n
 Muchas gracias por ser parte de cobot19.\n
@@ -37,7 +37,7 @@ router.post('/', function(req, res, next){
 	thumbName = filename.slice(4) + ".png";
 	filename = thumbFolder + filename.slice(4);
 	filePath = path.resolve('./uploads'+filename+".webm");
-	convFilePath = path.resolve('./uploads'+filename+".mp3");
+	convFilePath = path.resolve('./uploads'+filename+".mp4");
 	mkdirp(path.dirname(filePath), function (err){
 		if(err)
 			console.log(err);
@@ -59,7 +59,7 @@ router.post('/', function(req, res, next){
 				});
 				form.parse(req, function(err, fields, files){
 					console.log(fTypeCheck);
-					if(!fTypeCheck.match("^audio/")){
+					if(!fTypeCheck.match("^video/")){
 					let filePath = this.filePath;
 						fs.unlink(filePath, function(err){
 							if(err){
@@ -70,12 +70,12 @@ router.post('/', function(req, res, next){
 						res.end();
 						return;
 					}
-					vidTable.createAssociated("SIN URL", filePath, fields.qId);
+					vidTable.createAssociated("SIN URL", filePath, fields.user, fields.email, fields.coords);
 
 					var mailOptions = {
 						from: '2020cobot19@gmail.com',
 						to: fields.email,
-						subject: 'Audio recibido !',
+						subject: 'Video recibido !',
 						text: txt
 					};
 					transporter.sendMail(mailOptions, function(error, info){
@@ -85,6 +85,21 @@ router.post('/', function(req, res, next){
 							console.log('Email sent: ' + info.response);
 						}
 					});
+					var cookie = req.cookies.name;
+					if(cookie === undefined){
+						var name = fields.user;
+						res.cookie("name", name, {maxage: 1000 * 3600 * 24 * 31 * 11, httpOnly:true, secure:true});
+					}
+					var cookie = req.cookies.email;
+					if(cookie === undefined){
+						var email = fields.email;
+						res.cookie("email", email, {maxage: 1000 * 3600 * 24 * 31 * 11, httpOnly:true, secure:true});
+					}
+					var cookie = req.cookies.coords;
+					if(cookie === undefined){
+						var coords = fields.coords;
+						res.cookie("coords", coords, {maxage: 1000 * 3600 * 24 * 31 * 11, httpOnly:false, secure:true});
+					}
 
 
 					res.redirect( "/preguntas.html");
