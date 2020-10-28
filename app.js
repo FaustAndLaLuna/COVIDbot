@@ -123,11 +123,11 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-var http = express();
-http.get('*', function(req, res) {
-	return res.redirect('https://' + req.get('host') + req.url);
-});
-http.listen(80);
+// var http = express();
+// http.get('*', function(req, res) {
+// 	return res.redirect('https://' + req.get('host') + req.url);
+// });
+// http.listen(80);
 
 
 https.createServer({
