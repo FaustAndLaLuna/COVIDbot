@@ -2,7 +2,7 @@ var path = require('path');
 var fs = require('fs');
 var ffmpeg = require("fluent-ffmpeg");
 const genThumbnail = require('simple-thumbnail');
-const videosRepo = require('../conn/videosRepo');
+const videosRepo = require('../conn/audioRepo');
 
 const vidTable = new audiosRepo();
 
