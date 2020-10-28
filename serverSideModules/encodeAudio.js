@@ -4,7 +4,7 @@ var ffmpeg = require("fluent-ffmpeg");
 const genThumbnail = require('simple-thumbnail');
 const videosRepo = require('../conn/audioRepo');
 
-const vidTable = new audiosRepo();
+const vidTable = new videosRepo();
 
 
 function encode(videoID, URLtoVid){
