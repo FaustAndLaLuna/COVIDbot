@@ -5,7 +5,7 @@ var uuidv4 = require('uuid/v4');
 var fs = require('fs');
 var formidable = require('formidable');
 var mkdirp = require('mkdirp');
-var videosRepo = require('../conn/audiosRepo');
+var videosRepo = require('../conn/audioRepo');
 
 var txt = `Hola,\n
 Muchas gracias por ser parte de cobot19.\n
