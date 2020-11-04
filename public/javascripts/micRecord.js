@@ -226,7 +226,7 @@ function upload() {
     formData.append("blob", blob, 'video'); //not using name
                                             // so it's called video
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', './upload', true);
+    xhr.open('POST', './uploadAudio', true);
     xhr.setRequestHeader("X-CSRFToken", csrftoken );
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
@@ -293,7 +293,7 @@ $(document).ready(() => {
         formData.append("blob", blob, 'video'); //not using name
                                                 // so it's called video
         var xhr = new XMLHttpRequest();
-        xhr.open('POST', './upload', true);
+        xhr.open('POST', './uploadAudio', true);
         xhr.setRequestHeader("X-CSRFToken", csrftoken );
         xhr.onreadystatechange = function () {
             if (xhr.readyState == 4 && xhr.status == 200) {
@@ -316,7 +316,7 @@ $(document).ready(() => {
         formData.append("blob", blob, 'video'); //not using name
                                                 // so it's called video
         var xhr = new XMLHttpRequest();
-        xhr.open('POST', './upload', true);
+        xhr.open('POST', './uploadAudio', true);
         xhr.setRequestHeader("X-CSRFToken", csrftoken );
         xhr.onreadystatechange = function () {
             if (xhr.readyState == 4 && xhr.status == 200) {
@@ -340,7 +340,7 @@ $(document).ready(() => {
         formData.append("blob", blob, 'video'); //not using name
                                                 // so it's called video
         var xhr = new XMLHttpRequest();
-        xhr.open('POST', './upload', true);
+        xhr.open('POST', './uploadAudio', true);
         xhr.setRequestHeader("X-CSRFToken", csrftoken );
         xhr.onreadystatechange = function () {
             if (xhr.readyState == 4 && xhr.status == 200) {
