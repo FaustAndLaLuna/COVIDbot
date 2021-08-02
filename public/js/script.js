@@ -15,30 +15,18 @@ $.getJSON('/archivos', (archivos)=>{
         if(archivo.videoURL == 'SIN URL')
         return;
 
-        let temp = $("#tempvideo").clone(true);
-        
-        console.log(temp)
-
-
-
-        // let temp = document.createElement('video');
-        // temp.preload = 'metadata';
-        // temp.onloadedmetadata = () => {
-        //     console.log('nombre ' + source.src);
-        //     JSONdata.push({"nombre":source.src, "dur":temp.duration});
-        // };
-        // // temp.src = URL.createObjectURL("/vid" + archivo.videoURL);
-        // let source = document.createElement('source');
-        // source.src = "/vid" + archivo.videoURL;
-        // source.type = 'video/mp4';
-        // temp.appendChild(source);
-        // temp.load();
-        // temp.play();
-        // // JSONdata.push({"nombre":temp.src, "dur":temp.duration});
-        // // temp.remove();
+        let temp = document.createElement('video');
+        temp.preload = 'metadata';
+        temp.onloadedmetadata = () => {
+            JSONdata.push({"nombre":source.src, "dur":temp.duration});
+        };
+        let source = document.createElement('source');
+        source.src = "/uploads" + archivo.videoURL;
+        source.type = 'video/mp4';
+        temp.appendChild(source);
+        temp.load();
     });
 });
-
 
 /*
 *
