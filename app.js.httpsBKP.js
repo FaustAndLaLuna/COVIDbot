@@ -46,13 +46,12 @@ require('./middleware/passport.js')(passport);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.enable("trust proxy");
-//**********************************CHANGE FOR HTTPS */
-// app.use(function(req, res, next){
-// 		if (!req.secure) {
-// 			return res.redirect('https://' + req.get('host') + req.url);
-// 		}
-// 		next();
-// });
+app.use(function(req, res, next){
+		if (!req.secure) {
+			return res.redirect('https://' + req.get('host') + req.url);
+		}
+		next();
+});
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -125,18 +124,17 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-//***********REMOVE FOR HTTPS */
+// var http = express();
+// http.get('*', function(req, res) {
+// 	return res.redirect('https://' + req.get('host') + req.url);
+// });
+// http.listen(80);
 
-http = express();
-http.listen(80);
 
-//****************REMOVE COMMENTS FOR HTTPS */
-
-// https.createServer({
-// 	key:fs.readFileSync('/etc/letsencrypt/live/cobot19.com/privkey.pem'),
-// 	cert:fs.readFileSync('/etc/letsencrypt/live/cobot19.com/cert.pem'),
-// 	ca:fs.readFileSync('/etc/letsencrypt/live/cobot19.com/chain.pem')
-// },app).listen(443);
-
+https.createServer({
+	key:fs.readFileSync('/etc/letsencrypt/live/cobot19.com/privkey.pem'),
+	cert:fs.readFileSync('/etc/letsencrypt/live/cobot19.com/cert.pem'),
+	ca:fs.readFileSync('/etc/letsencrypt/live/cobot19.com/chain.pem')
+},app).listen(443);
 
 module.exports = app;
