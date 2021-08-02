@@ -117,7 +117,7 @@ $.getJSON('/archivos', (archivos)=>{
         setTimeout(function(){ location.reload(); }, durSuma + 1000);
 
         //FIN Módulo 5 [Respuesta]
-    }, 5000);
+    }, 20000);
 
 
 }); // FIN document.ready

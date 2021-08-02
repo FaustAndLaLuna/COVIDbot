@@ -152,7 +152,7 @@ function videoSecuencia(
       document.body.appendChild(videito);
       videito.src = sourceArg; //Lo recibe como parámetro y además convertir en una función? para una lista rand que elige el primero del folder correspondiente
       videito.volume = volumeArg;
-      videito.autoplay = true;
+      // videito.autoplay = true;
       videito.loop = false;
   
       var tiempo = 0; //Empezar videos en otros puntos? //repetir secciones?
@@ -283,6 +283,7 @@ function videoSecuencia(
         console.log('FIN ' + id_videito);
         $('#' + id_videito).fadeOut(fadeOutArg); //Desaparece video
       } // FIN onended
+      videito.play();
     } // FIN función crearVideo
   
   } // FIN objeto Video
