@@ -20,6 +20,19 @@ $.getJSON('/archivos', (archivos)=>{
         temp.remove();
     });
 });
+
+
+$.getJSON('/archivos', (archivos)=>{
+
+    for(let i = 0; i < archivos.length; i++){
+        isWaiting = true;
+        $("#tempvideo")[0].src = archivos[i].videoURL;
+        while(isWaiting){
+            await sleep(150);
+        }
+    }
+});
+
 /*
 *
 *
@@ -109,3 +122,8 @@ setTimeout(function(){ location.reload(); }, durSuma + 1000);
 //FIN Módulo 5 [Respuesta]
 
 }); // FIN document.ready
+
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }

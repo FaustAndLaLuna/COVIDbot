@@ -5,7 +5,7 @@
 		<title>DERIVA 68</title>
 		<link rel="stylesheet" type="text/css" href="css/reset.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<video style="opacity:0.1;height:1px;width:1px;" id='temp'></video>
+		<video style="opacity:0.1;height:1px;width:1px;" id='tempvideo' onloadedmetadata="addToJSONdata()"></video>
 	</head>
 
 	<body>
@@ -15,6 +15,15 @@
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script>
 		var JSONdata = [];
+		var isWaiting = false;
+
+		function addToJSONdata(){
+			src = $("#tempvideo")[0].src;
+			dur = $("#tempvideo")[0].duration;
+			toAppend = {"nombre":src, "dur":dur};
+			isWaiting = false;
+			JSONdata.append(toAppend);
+		}
 	</script>
 	<script type="text/javascript" src="js/deriva_live.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
