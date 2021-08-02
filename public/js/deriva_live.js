@@ -14,7 +14,7 @@ $(document).ready(() => {
         return;
       let temp = document.createElement('video');
       temp.src = archivo.videoURL;
-      JSONdata.append({"nombre":temp.src, "dur":temp.duration});
+      JSONdata.append({"nombre":"/vid"+temp.src, "dur":temp.duration});
       temp.remove();
     });
   });
