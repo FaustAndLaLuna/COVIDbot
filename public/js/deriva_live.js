@@ -1,5 +1,5 @@
 $(document).ready(() => {
-  $.getJSON('http://167.71.25.79/archivos', (archivos)=>{
+  $.getJSON('/archivos', (archivos)=>{
     var object = getURLVars();
     
     if(object.startDate && object.endDate){
