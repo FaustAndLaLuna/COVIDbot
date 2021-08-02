@@ -1,4 +1,5 @@
 const https = require('https');
+const http = require('http');
 const fs = require('fs');
 
 global.ISWORKING = false;
@@ -127,8 +128,7 @@ app.use(function(err, req, res, next) {
 
 //***********REMOVE FOR HTTPS */
 
-http = express();
-http.listen(80);
+http.createServer().listen(80);
 
 //****************REMOVE COMMENTS FOR HTTPS */
 
