@@ -2,6 +2,7 @@
 // Software para montaje generativo de video e imagen en tiempo real
 // Desarrollado por Pablo Somonte Ruano para la pieza DERIVA_68
 // Disponible como software libre bajo la licencia GPL
+var JSONdata = [];
 
 $(document).ready(function(){
 //***********************INICIO Código necesario para carga de video  */
