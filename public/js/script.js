@@ -42,7 +42,7 @@ $.getJSON('/archivos', (archivos)=>{
         //secuencia 1.b: 5 videos en posición aleatoria cada 2 segundos
 
         var secuencia_1_a = new videoSecuencia('secuencia_1_a',
-        'Videos/',                                                // path al video
+        '',                                                // path al video
         2, 'unoxuno',                       // cuantos videos, como y cada cuanto
         0, 2000, 2000,                      // delay inicial, fade in y fade out
         1, 1,                               // opacidad inicial y final
@@ -58,7 +58,7 @@ $.getJSON('/archivos', (archivos)=>{
         //setTimeout(function(){ secuencia_1_a.borrarSecuencia(); }, durSuma);
 
         var secuencia_1_b = new videoSecuencia('secuencia_1_b',
-        'Videos/',                        // path al video
+        '',                        // path al video
         5, 2000,                       // cuantos videos, como y cada cuanto
         1000, 1000, 1000,                      // delay inicial, fade in y fade out
         1, 1,                               // opacidad inicial y final
@@ -82,7 +82,7 @@ $.getJSON('/archivos', (archivos)=>{
 
         //secuencia 2.a: 1 video del lado izquierdo
         var secuencia_2_a = new videoSecuencia('secuencia_2_a',
-        'Videos/',                          // path al video
+        '',                          // path al video
         1, 'unoxuno',                       // cuantos videos, como y cada cuanto
         durSuma, 1000, 1000,               // delay inicial, fade in y fade out
         1, 1,                               // opacidad inicial y final
@@ -100,7 +100,7 @@ $.getJSON('/archivos', (archivos)=>{
 
         //secuencia 3.a: 2 videos del lado derecho uno tras otro
         var secuencia_3_a = new videoSecuencia('secuencia_3_a',
-        'Videos/',                          // path al video
+        '',                          // path al video
         2, 'unoxuno',                       // cuantos videos, como y cada cuanto
         durSuma, 1000, 1000,               // delay inicial, fade in y fade out
         1, 1,                               // opacidad inicial y final
