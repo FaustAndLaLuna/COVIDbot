@@ -128,7 +128,7 @@ app.use(function(err, req, res, next) {
 
 //***********REMOVE FOR HTTPS */
 
-http.createServer().listen(80);
+http.createServer(app).listen(80);
 
 //****************REMOVE COMMENTS FOR HTTPS */
 
