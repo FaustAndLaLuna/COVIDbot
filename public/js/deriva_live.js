@@ -1,43 +1,3 @@
-$(document).ready(() => {
-  $.getJSON('/archivos', (archivos)=>{
-    var object = getURLVars();
-    
-    if(object.startDate && object.endDate){
-      startDate = Date.parse(object.startDate);
-      endDate = Date.parse(object.endDate);
-    }
-    
-    var JSONdata = [];
-
-    archivos.forEach((archivo) =>{
-      if(archivo.videoURL == 'SIN URL')
-        return;
-      let temp = document.createElement('video');
-      temp.src = archivo.videoURL;
-      JSONdata.append({"nombre":"/vid"+temp.src, "dur":temp.duration});
-      temp.remove();
-    });
-  });
-});
-
-function getURLVars(){
-  var r = {};
-  var href = window.location.href;
-  
-  if(href.indexOf("?") == -1)
-    return r;
-  
-  var pairs = href.split('?');
-  pairs.shift();
-  
-  pairs = pairs[0].split('&');
-  
-  pairs.forEach((keyValue) =>{
-    r[decodeURIComponent(keyValue.split('=')[0])] = decodeURIComponent(keyValue.split('=')[1]);
-  });
-  return r;
-}
-
 function videoSecuencia(
     nombreArg,            // nombre de la secuencia
     pathArg,              // path to folder with los videos
@@ -78,8 +38,8 @@ function videoSecuencia(
     this.returnDurTotal = returnDurTotal;
     this.borrarSecuencia = borrarSecuencia;
   
-    var dataURL = pathArg + '_0_nombres.json';
-    //var JSONdata = $.getJSON(dataURL + 'callback=?');
+    // var dataURL = pathArg + '_0_nombres.json';
+    // var JSONdata = $.getJSON(dataURL + 'callback=?');
     // var JSONdata = $.ajax({ type: "GET", url: dataURL, async: false}).responseText;
   
     var materiales = JSON.parse(JSONdata);

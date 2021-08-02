@@ -3,11 +3,27 @@
 // Desarrollado por Pablo Somonte Ruano para la pieza DERIVA_68
 // Disponible como software libre bajo la licencia GPL
 
-//ENABLE Autoplay on your browser
-//IN about:config set privacy.file_unique_origin to false to enable CORS on same origin (Since Firefox 68)
-
 $(document).ready(function(){
-
+//***********************INICIO Código necesario para carga de video  */
+/*
+*
+*
+*/
+$.getJSON('/archivos', (archivos)=>{
+    archivos.forEach((archivo) =>{
+        if(archivo.videoURL == 'SIN URL')
+        return;
+        let temp = document.createElement('video');
+        temp.src = "/vid" + archivo.videoURL;
+        JSONdata.push({"nombre":temp.src, "dur":temp.duration});
+        temp.remove();
+    });
+});
+/*
+*
+*
+*/
+//**********************FIN Código necesario para carga de video */
 durSuma = 0;
 
 //MODULO 1
