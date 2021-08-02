@@ -5,7 +5,7 @@ const videosRepo = require('../conn/videosRepo')
 
 const vidTable = new videosRepo();
 
-router.post('/', function(req, res, next) {
+router.get('/', function(req, res, next) {
 	vidTable.getAll().then((allVids) => {
         res.setHeader('Content-Type', 'application/json');
         res.end(JSON.stringify(allVids));
