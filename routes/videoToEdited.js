@@ -5,16 +5,11 @@ const videosRepo = require('../conn/videosRepo')
 
 const vidTable = new videosRepo();
 
-router.get('/', function(req, res, next) {
+router.post('/', function(req, res, next) {
 	vidTable.getAll().then((allVids) => {
-		req.responseObj.allVids = allVids;
-		res.render('biografia.ejs', req.responseObj);
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(allVids));
 	});
-	
-	
-	
-	//res.sendFile(path.resolve('./public/record.html'));
 });
-
 
 module.exports = router;

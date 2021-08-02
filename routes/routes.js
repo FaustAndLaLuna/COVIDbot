@@ -1,13 +1,14 @@
 //Routes for stuff
 var path = require('path');
 
-var videoRouter 	= require('./video.js');
-var vidPlayerRouter = require('./vidPlayer.js');
-var recuerdosRouter = require('./recuerdos.js');
-var uploadRouter 	= require('./upload.js');
+var videoRouter 		= require('./video.js');
+var vidPlayerRouter 	= require('./vidPlayer.js');
+var recuerdosRouter 	= require('./recuerdos.js');
+var uploadRouter 		= require('./upload.js');
 var uploadAudioRouter 	= require('./uploadAudio.js');
-var recordRouter 	= require('./record.js');
-var questionsRouter	= require('./questions.js');
+var recordRouter 		= require('./record.js');
+var questionsRouter		= require('./questions.js');
+var videoToEdited 		= require('./videoToEdited.js')
 
 module.exports = function(app, passport){
 	
@@ -24,6 +25,8 @@ module.exports = function(app, passport){
 	app.use("/videos", recordRouter);
 
 	app.use("/questions", questionsRouter);
+
+	app.use("/videoToEdited", videoToEdited);
 	
 	//Routers: Return all questions and answers.
 	//Ask a question
