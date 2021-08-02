@@ -178,7 +178,7 @@ function videoSecuencia(
         var listenerVideoWidth = this.videoWidth,
             listenerVideoHeight = this.videoHeight;
   
-        if (listenerVideoWidth >= screen.width && posArg != 'mi' && posArg != 'md'){
+        if (listenerVideoWidth >= $(window).width() && posArg != 'mi' && posArg != 'md'){
   
           $('#' + id_videito).css('marginLeft', 0);
           $('#' + id_videito).css('marginRight', 0);
@@ -187,20 +187,20 @@ function videoSecuencia(
         } else if (posArg == 'mi'){
   
           //Si el video es más ancho de la mitad de la pantalla
-          if (listenerVideoWidth >= screen.width / 2){
+          if (listenerVideoWidth >= $(window).width() / 2){
   
               // Mapear a partír de la dimensión del video A
               // de la mitad al total si 1920 - (960 - 1920)
               // a 0 a un cuarto del total 1920 - (0 - 480)
               var clipMap = map_range(
                 listenerVideoWidth,
-                (screen.width / 2),
-                screen.width,
+                ($(window).width() / 2),
+                $(window).width(),
                 0,
-                (screen.width / 4) );
+                ($(window).width() / 4) );
   
               var marginLeft = - clipMap;
-              var marginTop = (screen.height - listenerVideoHeight)  / 2;
+              var marginTop = ($(window).height() - listenerVideoHeight)  / 2;
   
               $('#' + id_videito).css('clipPath', 'inset(0px ' + clipMap + 'px');
               $('#' + id_videito).css('marginLeft', marginLeft);
@@ -209,8 +209,8 @@ function videoSecuencia(
               //Si el video es menos ancho que la mitad de la pantalla
             } else{
   
-              var marginLeft = ( (screen.width / 2) - listenerVideoWidth) / 2;
-              var marginTop = (screen.height - listenerVideoHeight)  / 2;
+              var marginLeft = ( ($(window).width() / 2) - listenerVideoWidth) / 2;
+              var marginTop = ($(window).height() - listenerVideoHeight)  / 2;
   
               $('#' + id_videito).css('marginLeft', marginLeft);
               $('#' + id_videito).css('marginTop', marginTop);
@@ -219,20 +219,20 @@ function videoSecuencia(
             } else if (posArg == 'md'){
   
               //Si el video es más ancho de la mitad de la pantalla
-              if (listenerVideoWidth >= screen.width / 2){
+              if (listenerVideoWidth >= $(window).width() / 2){
   
                   // Mapear a partír de la dimensión del video A
                   // de la mitad al total si 1920 - (960 - 1920)
                   // a 0 a un cuarto del total 1920 - (0 - 480)
                   var clipMap = map_range(
                     listenerVideoWidth,
-                    (screen.width / 2),
-                    screen.width,
+                    ($(window).width() / 2),
+                    $(window).width(),
                     0,
-                    (screen.width / 4) );
+                    ($(window).width() / 4) );
                     console.log('clipMap = ' + clipMap);
-                  var marginLeft =  screen.width / 2 - clipMap;
-                  var marginTop = (screen.height - listenerVideoHeight)  / 2;
+                  var marginLeft =  $(window).width() / 2 - clipMap;
+                  var marginTop = ($(window).height() - listenerVideoHeight)  / 2;
   
                   $('#' + id_videito).css('clipPath', 'inset(0px ' + clipMap + 'px');
                   $('#' + id_videito).css('marginLeft', marginLeft);
@@ -241,20 +241,20 @@ function videoSecuencia(
                   //Si el video es menos ancho que la mitad de la pantalla
                 } else{
   
-                    var marginLeft =  (screen.width / 2) + ( (screen.width / 2) - listenerVideoWidth ) / 2;
-                    var marginTop = (screen.height - listenerVideoHeight)  / 2;
+                    var marginLeft =  ($(window).width() / 2) + ( ($(window).width() / 2) - listenerVideoWidth ) / 2;
+                    var marginTop = ($(window).height() - listenerVideoHeight)  / 2;
   
                     $('#' + id_videito).css('marginLeft', marginLeft);
                     $('#' + id_videito).css('marginTop', marginTop);
                   }
   
-        } else if(listenerVideoWidth < screen.width) {
+        } else if(listenerVideoWidth < $(window).width()) {
   
           // CENTRADO
           if (posArg == 'c'){
   
-            var marginLeft = (screen.width - listenerVideoWidth) / 2;
-            var marginTop = (screen.height - listenerVideoHeight) / 2;
+            var marginLeft = ($(window).width() - listenerVideoWidth) / 2;
+            var marginTop = ($(window).height() - listenerVideoHeight) / 2;
   
             $('#' + id_videito).css('marginLeft', marginLeft);
             $('#' + id_videito).css('marginTop', marginTop);
@@ -262,8 +262,8 @@ function videoSecuencia(
             //RANDOM
           } else if (posArg == 'r'){
   
-            var marginLeft = (screen.width - listenerVideoWidth) / 2;
-            var marginTop = (screen.height - listenerVideoHeight) / 2;
+            var marginLeft = ($(window).width() - listenerVideoWidth) / 2;
+            var marginTop = ($(window).height() - listenerVideoHeight) / 2;
   
             var randomMarginLeft = Math.random() * marginLeft * 2;
             var randomMarginTop = Math.random() * marginTop * 2;
@@ -338,8 +338,8 @@ function videoSecuencia(
             if (heightImg > 860){imagen.height = 860;}
           }
           //futuro: if pos c:
-          $('#' + id_imagen).css('marginLeft', (screen.width - imagen.width)/2);
-          $('#' + id_imagen).css('marginTop', (screen.height - imagen.height)/2);
+          $('#' + id_imagen).css('marginLeft', ($(window).width() - imagen.width)/2);
+          $('#' + id_imagen).css('marginTop', ($(window).height() - imagen.height)/2);
         } // FIN onload width y height
   
         $('#' + id_imagen).fadeIn(fadeInArgImg);
